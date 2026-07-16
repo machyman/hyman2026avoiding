@@ -1,0 +1,19 @@
+name: Suggestion
+description: Propose an improvement to the book or the companion materials.
+title: "[Suggestion]: "
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggestions for clearer explanations, additional examples, or new materials are welcome.
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your suggestion
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why would this help?
