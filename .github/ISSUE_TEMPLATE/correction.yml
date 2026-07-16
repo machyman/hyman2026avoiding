@@ -1,0 +1,35 @@
+name: Correction
+description: Report an error in the book or the companion code.
+title: "[Correction]: "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the book. Please describe the error and where it appears.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where is the error?
+      options:
+        - Book text
+        - Figure or caption
+        - Companion code (notebooks / src)
+        - Data or provenance
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Chapter/section/page, figure number, or file and line.
+      placeholder: "e.g., Chapter 9, Section 9.2  /  notebooks/ch09/ch9_figures.py line 40"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What is wrong, and what should it say?
+    validations:
+      required: true
