@@ -1,0 +1,22 @@
+# Section structure for the companion site. The rendered sidebar links
+# (nav_external_links in _config.yml) point to these GitHub locations; this file
+# records the intended structure the manuscript's Appendix B promises.
+- title: Home
+  path: /
+- title: Code (per-chapter notebooks)
+  path: /notebooks/
+  children:
+    - { title: "Ch 6 — SIR_I analysis", path: /notebooks/ch06/ }
+    - { title: "Ch 7 — Simulation", path: /notebooks/ch07/ }
+    - { title: "Ch 8 — Fitting", path: /notebooks/ch08/ }
+    - { title: "Ch 9 — Fitting in practice", path: /notebooks/ch09/ }
+    - { title: "Ch 10 — Sensitivity", path: /notebooks/ch10/ }
+    - { title: "Ch 11 — Generalizations", path: /notebooks/ch11/ }
+- title: Shared modules
+  path: /src/
+- title: Data
+  path: /data/
+- title: Labs (in preparation)
+  path: /labs/
+- title: The book
+  path: /book/

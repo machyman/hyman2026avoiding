@@ -1,1 +1,80 @@
-# hyman2026avoiding
+# Avoiding Pitfalls in Epidemic Modeling — Companion Repository
+
+Companion code and materials for the book *Avoiding Pitfalls in Epidemic
+Modeling: An Introduction to Formulating, Analyzing, and Fitting Models*, by
+**James M. Hyman**, **Zhuolin Qu**, and **Ling Xue** (Springer,
+Interdisciplinary Applied Mathematics series — under review).
+
+**Rendered companion site:** <https://machyman.github.io/hyman2026avoiding>
+
+> **The book is under review with Springer.** The manuscript is not hosted
+> here; it will be available from the publisher, with a link added **pending
+> permission**. See [`book/`](book/).
+
+## What's here
+
+This repository collects the reproducible code behind the book's figures and
+numerical results, organized to match the book's Appendix B:
+
+| Path | Contents |
+|---|---|
+| [`notebooks/`](notebooks/) | Per-chapter scripts that reproduce each chapter's figures and computations (`ch06/`–`ch11/`) |
+| [`src/`](src/) | Shared Python modules — the `sir_i_model.py` integrator used across chapters |
+| [`data/`](data/) | Provenance and pointers for the empirical case-study datasets |
+| [`labs/`](labs/) | Guided lab notebooks *(in preparation)* |
+| [`book/`](book/) | Book availability and citation *(manuscript not hosted — under review)* |
+
+Fuller narrated teaching notebooks and the lab set are being finalized alongside
+the book.
+
+## Quick start
+
+```bash
+git clone https://github.com/machyman/hyman2026avoiding
+cd hyman2026avoiding
+pip install -r requirements.txt
+mkdir -p figs
+python notebooks/ch07/ch7_figures.py     # writes figures to figs/
+```
+
+Run scripts from the repository root. Anything involving randomness is seeded,
+so results are reproducible.
+
+## Who it's for
+
+Graduate students and researchers learning to formulate, analyze, and fit
+compartmental epidemic models — and instructors teaching from the book. The code
+is meant to be read alongside the corresponding chapter.
+
+## Citing
+
+Please cite the book:
+
+```bibtex
+@book{hyman2026avoiding,
+  title     = {Avoiding Pitfalls in Epidemic Modeling: An Introduction to
+               Formulating, Analyzing, and Fitting Models},
+  author    = {Hyman, James M. and Qu, Zhuolin and Xue, Ling},
+  year      = {2026},
+  publisher = {Springer},
+  series    = {Interdisciplinary Applied Mathematics},
+  note      = {Under review}
+}
+```
+
+Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff). The
+ISBN and a Zenodo DOI for this repository are pending and will be added here.
+
+## Feedback and corrections
+
+Found an error, or have a question or suggestion? Please
+[open an issue](../../issues/new/choose) — the templates will guide you:
+
+- **Correction** — report an error in the book or the code
+- **Question** — ask about the material
+- **Suggestion** — propose an improvement
+
+## License
+
+Code in this repository is released under the [MIT License](LICENSE). The book
+text and figures are © the authors and Springer and are not included here.

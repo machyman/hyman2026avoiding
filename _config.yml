@@ -1,0 +1,46 @@
+title: Avoiding Pitfalls in Epidemic Modeling
+description: >-
+  Companion code and materials for the book "Avoiding Pitfalls in Epidemic
+  Modeling: An Introduction to Formulating, Analyzing, and Fitting Models"
+  (Hyman, Qu, Xue; Springer, Interdisciplinary Applied Mathematics — under review).
+url: https://machyman.github.io
+baseurl: /hyman2026avoiding
+
+# Theme via remote_theme (no Gemfile required on classic GitHub Pages)
+remote_theme: just-the-docs/just-the-docs
+
+# Only github-pages-whitelisted plugins
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# just-the-docs options
+color_scheme: light
+search_enabled: true
+heading_anchors: true
+aux_links:
+  "View on GitHub":
+    - https://github.com/machyman/hyman2026avoiding
+aux_links_new_tab: true
+
+# Sidebar links to the GitHub-hosted sections
+nav_external_links:
+  - title: "Code (notebooks)"
+    url: https://github.com/machyman/hyman2026avoiding/tree/main/notebooks
+  - title: "Data"
+    url: https://github.com/machyman/hyman2026avoiding/tree/main/data
+  - title: "Labs (in preparation)"
+    url: https://github.com/machyman/hyman2026avoiding/tree/main/labs
+  - title: "Report an issue"
+    url: https://github.com/machyman/hyman2026avoiding/issues/new/choose
+
+# Keep code/data out of the Jekyll site build (they are browsed on GitHub)
+exclude:
+  - notebooks/
+  - src/
+  - data/
+  - labs/
+  - requirements.txt
+  - LICENSE
+  - CITATION.cff

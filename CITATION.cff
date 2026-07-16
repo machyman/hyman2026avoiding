@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: >-
+  If you use this companion material, please cite the book. (The ISBN and a
+  Zenodo DOI for this repository are pending and will be added here once
+  available.)
+title: >-
+  Avoiding Pitfalls in Epidemic Modeling: An Introduction to Formulating,
+  Analyzing, and Fitting Models
+type: book
+authors:
+  - family-names: Hyman
+    given-names: James M.
+    affiliation: Tulane University
+  - family-names: Qu
+    given-names: Zhuolin
+    affiliation: University of Texas at San Antonio
+  - family-names: Xue
+    given-names: Ling
+    affiliation: Harbin Engineering University
+publisher:
+  name: Springer
+year: 2026
+url: https://github.com/machyman/hyman2026avoiding
