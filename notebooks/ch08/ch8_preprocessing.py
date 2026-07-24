@@ -49,7 +49,7 @@ B='#1f5fa8'; Rd='#c0392b'; G='#2e7d32'
 # Fig 1: timeseries
 fig,ax=plt.subplots(3,1,figsize=(7.0,6.2),sharex=True)
 for a,(lab,ser) in zip(ax,[('Raw (injected day-of-week effect)',raw),('7-day moving average',mav),('Day-of-week deconvolution',dow)]):
-    a.plot(days,counts_true,'k-',lw=1.4,label='ground truth $J(t)$',zorder=3)
+    a.plot(days,counts_true,'k-',lw=1.4,label='ground truth $\\mathsf{J}_{\\mathrm{true}}$',zorder=3)
     a.plot(days,ser,'o-',ms=3,lw=0.8,color=B,alpha=0.85,label=lab)
     a.legend(frameon=False,fontsize=8,loc='upper left'); a.set_ylabel('daily cases')
     for s in('top','right'):a.spines[s].set_visible(False)
@@ -57,9 +57,9 @@ ax[-1].set_xlabel('Day'); fig.tight_layout(); fig.savefig('figs/preprocessing_ti
 
 # Fig 2: periodograms
 fig,ax=plt.subplots(figsize=(7.0,3.6))
-for ser,lab,c in [(raw,'Raw',Rd),(mav,'7-day MA',G),(dow,'DoW deconvolution',B)]:
+for ser,lab,c,st in [(raw,'Raw',Rd,'-'),(mav,'7-day moving average',G,'--'),(dow,'day-of-week deconvolution',B,':')]:
     x=np.nan_to_num(ser-np.nanmean(ser)); P=np.abs(rfft(x))**2; f=rfftfreq(len(x),1)
-    ax.semilogy(f[1:],P[1:]+1e-2,lw=1.3,label=lab,color=c)
+    ax.semilogy(f[1:],P[1:]+1e-2,lw=1.3,label=lab,color=c,ls=st)
 ax.axvline(1/7,color='0.5',ls='--',lw=1); ax.text(1/7+0.008,ax.get_ylim()[1]*0.25,'$1/7$ day$^{-1}$',fontsize=8)
 ax.set_xlabel('frequency (day$^{-1}$)'); ax.set_ylabel('power'); ax.legend(frameon=False,fontsize=8)
 for s in('top','right'):ax.spines[s].set_visible(False)
@@ -72,7 +72,7 @@ for a,(lab,b,tt) in zip(ax,fits):
     R0h=cIc*b/(1/tt+nu)
     a.plot(days,counts_true,'k-',lw=1.0,alpha=0.6,label=f'Truth ($\\mathcal{{R}}_0$={R0_true:.3f})')
     a.plot(days,sers[lab],'o',ms=2.5,color='0.45',alpha=0.7,label='Data')
-    a.plot(days,model_counts(b,tt,days),'-',lw=1.6,color=Rd,label=f'Fit ($\\mathcal{{R}}_0$={R0h:.3f})')
+    a.plot(days,model_counts(b,tt,days),'--',lw=1.6,color=Rd,label=f'Fit ($\\mathcal{{R}}_0$={R0h:.3f})')
     a.axvline(30,color='0.6',ls=':',lw=1); a.set_title(lab,fontsize=10); a.set_xlabel('Day')
     a.legend(frameon=False,fontsize=7.5,loc='upper left')
     for s in('top','right'):a.spines[s].set_visible(False)

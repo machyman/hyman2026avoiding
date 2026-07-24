@@ -15,7 +15,7 @@ Reuses the shared integrator in sir_i_model.py; run from the repository root.
 Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-07-08   Version 1.2
 """
-import numpy as np, matplotlib.pyplot as plt, sys; import os as _os; sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'src'))
+import numpy as np, matplotlib.pyplot as plt, sys; sys.path.insert(0, 'figs_src')
 from sir_i_model import simulate, endemic
 plt.rcParams.update({'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
 B='#1f5fa8'; Rd='#c0392b'; G='#2e7d32'

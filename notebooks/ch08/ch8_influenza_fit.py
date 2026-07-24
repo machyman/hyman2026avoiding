@@ -11,7 +11,7 @@ demographically-correct residence time tau_m = 7300 days (20 yr).  The
 susceptible-viewpoint estimate lambda_hat = J/S is biased by the assumed
 susceptible fraction (R0 ranges 1.4 -> 2.8 as F0 falls 1.0 -> 0.5).
 
-Model: SIR_I (same as src/sir_i_model.py)
+Model: SIR_I (same as figs_src/sir_i_model.py)
   lam = beta*c_S*c_I*S*I/C,  C = c_S S + c_I I + c_R R
   R0  = c_I beta / (gamma_R + nu_m)
 Early outbreak (S~1): alpha_hat = J/I ~ c_I beta;  R0 = alpha_hat/(gamma_R+nu_m).

@@ -10,7 +10,7 @@ Model:          equal-contact case c_S = c_I = c_R = c (matches Figs 6.1, 6.3),
                 (red star) through the damped oscillations of Section 6.
 
 This script was reconstructed (2026-06-22) to close a missing-script gap: the
-figure was present in the manuscript but had no standalone generator, and its
+figure was present in the manuscript but had no generator in figs_src/, and its
 caption R0 value (1.86) was inconsistent with the canonical baseline (1.92).
 It reuses the shared integrator in sir_i_model.py so the figure regenerates
 consistently after any baseline change.
@@ -27,7 +27,7 @@ v1.2 (2026-06-30): added the disease-free equilibrium marker (black dot) at
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
-import sys; import os as _os; sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'src'))   # run from the repo root, as ch7/ch10 do
+import sys; sys.path.insert(0, 'figs_src')   # run from the repo root, as ch7/ch10 do
 import sir_i_model as M
 
 plt.rcParams.update({'font.family': 'serif', 'font.size': 12,
