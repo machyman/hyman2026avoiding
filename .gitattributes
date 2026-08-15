@@ -1,0 +1,5 @@
+# Keep site scaffolding and CI out of release archives / Zenodo deposits
+_config.yml export-ignore
+_data/ export-ignore
+_includes/ export-ignore
+.github/ export-ignore
