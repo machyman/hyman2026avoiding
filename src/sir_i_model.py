@@ -16,7 +16,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 
 # canonical baseline (N*=1)
-BASE = dict(c_S=10.0, c_I=8.0, c_R=10.0, beta=0.02, tau_R=12.0, tau_m=7300.0)
+BASE = dict(c_S=20.0, c_I=4.0, c_R=20.0, beta=0.040, tau_R=12.0, tau_m=7300.0)
 
 def rhs(t, y, c_S, c_I, c_R, beta, gR, nu):
     """SIR_I RHS d/dt[S,I,R]; force lam = beta*c_S*c_I*S*I/(c_S S+c_I I+c_R R)."""

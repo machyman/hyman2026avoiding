@@ -46,9 +46,13 @@ instructors teaching from the book.
 - **[Data](https://github.com/machyman/hyman2026avoiding/tree/main/data)** —
   provenance and pointers for the case-study datasets (e.g., the WSU 2009 H1N1
   data via the MIDAS catalog).
+- **[Capstones](https://github.com/machyman/hyman2026avoiding/tree/main/capstone-projects)** —
+  the book's chapter capstone projects, one directory per project.
 - **Labs** — guided, multi-step notebooks *(in preparation)*.
 - **Errata & questions** — please
   [open an issue](https://github.com/machyman/hyman2026avoiding/issues/new/choose).
+- **[Repository changelog](https://github.com/machyman/hyman2026avoiding/blob/main/CHANGELOG.md)** —
+  reader-facing changes to the companion materials.
 
 ## Running the code
 

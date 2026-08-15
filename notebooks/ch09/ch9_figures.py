@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- WSU H1N1 real-data fit.
 """Chapter 9 figures: fitting-in-practice diagnostics (WSU 2009 H1N1 case study).
 
 Companion text: Avoiding Pitfalls in Epidemic Modeling, Chapter 9.
@@ -118,13 +119,13 @@ for a, dev, ttl in [(ax[0], dev_flat, 'Unpenalized'), (ax[1], dev_pen, 'Penalize
     a.semilogx(F0, dev, color=B, lw=2.2)
     a.axhline(thr, color=Rd, ls='--', lw=1)
     a.text(1.4e-6, thr + 0.15, r'95\% threshold', fontsize=7.5, color=Rd)
-    a.set_xlabel(r'$F_0$')
+    a.set_xlabel(r'$I_0$')
     a.set_title(ttl, fontsize=10)
     despine(a)
 ax[0].set_ylabel(r'profile deviance')
 ax[0].set_ylim(-0.3, 6.5)
 ax[1].axvline(F0bar, color='0.5', ls=':', lw=1)
-ax[1].text(F0bar * 1.15, 5.4, r'$\bar{F}_0=1/\mathsf{N}^{\mathrm{c}}$', fontsize=7.5, color='0.4')
+ax[1].text(F0bar * 1.15, 5.4, r'$\bar{I}_0=1/\mathsf{N}^{\mathrm{c}}$', fontsize=7.5, color='0.4')
 fig.tight_layout()
 fig.savefig('figs/ch9_profile_likelihood.pdf'); plt.close(fig); print('profile ok')
 
@@ -200,7 +201,7 @@ ax[1].plot(dd, Jdelay, color=B, lw=1.9, ls='--', label='observed (3-day delay)')
 pk_t, pk_d = dd[np.argmax(Jtrue)], dd[np.argmax(Jdelay)]
 ax[1].axvline(pk_t, color=O, ls=':', lw=0.8)
 ax[1].axvline(pk_d, color=B, ls=':', lw=0.8)
-ax[1].text(0.03, 0.9, r'$\hat{R}_0$ underestimated $\approx 57\%$', transform=ax[1].transAxes,
+ax[1].text(0.03, 0.9, r'$\hat{R}_0$ underestimated $\approx 44\%$', transform=ax[1].transAxes,
            fontsize=8, color='0.25')
 ax[1].set_xlabel('Day'); ax[1].set_ylabel('daily cases')
 ax[1].set_title('Reporting-delay bias', fontsize=10)

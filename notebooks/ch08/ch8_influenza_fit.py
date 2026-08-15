@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- real-data influenza fit; imports the model function only.
 """Fig 8.x  Chapter 8 influenza case study: infected- vs susceptible-viewpoint fit.
 
 Companion text: Avoiding Pitfalls in Epidemic Modeling, Chapter 8.

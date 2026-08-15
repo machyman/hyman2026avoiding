@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- Route B synthetic regime (R0 = 2.0).
 import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import least_squares

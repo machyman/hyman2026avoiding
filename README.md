@@ -18,8 +18,10 @@ numerical results, organized to match the book's Appendix B:
 
 | Path | Contents |
 |---|---|
-| [`notebooks/`](notebooks/) | Per-chapter scripts that reproduce each chapter's figures and computations (`ch06/`–`ch11/`) |
+| [`notebooks/`](notebooks/) | Per-chapter scripts that reproduce each chapter's figures and computations (`ch03/`, `ch06/`–`ch11/`) |
 | [`src/`](src/) | Shared Python modules — the `sir_i_model.py` integrator used across chapters |
+| [`code/`](code/python/ch10_sensitivity/) | Standalone modules the book cites by path — currently the Chapter 10 sensitivity module |
+| [`capstone-projects/`](capstone-projects/) | The book's chapter capstone projects, one directory per project |
 | [`data/`](data/) | Provenance and pointers for the empirical case-study datasets |
 | [`labs/`](labs/) | Guided lab notebooks *(in preparation)* |
 | [`book/`](book/) | Book availability and citation *(manuscript not hosted — under review)* |
@@ -38,7 +40,8 @@ python notebooks/ch07/ch7_figures.py     # writes figures to figs/
 ```
 
 Run scripts from the repository root. Anything involving randomness is seeded,
-so results are reproducible.
+so results are reproducible; the conventions are documented in
+[`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
 ## Who it's for
 
@@ -68,11 +71,16 @@ ISBN and a Zenodo DOI for this repository are pending and will be added here.
 ## Feedback and corrections
 
 Found an error, or have a question or suggestion? Please
-[open an issue](../../issues/new/choose) — the templates will guide you:
+[open an issue](https://github.com/machyman/hyman2026avoiding/issues/new/choose) — the templates will guide you:
 
 - **Correction** — report an error in the book or the code
 - **Question** — ask about the material
 - **Suggestion** — propose an improvement
+
+## Repository history
+
+Reader-facing changes to this repository are logged in
+[`CHANGELOG.md`](CHANGELOG.md).
 
 ## License
 

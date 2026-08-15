@@ -34,8 +34,8 @@ plt.rcParams.update({'font.family': 'serif', 'font.size': 12,
                      'mathtext.fontset': 'cm', 'axes.linewidth': 0.8})
 
 # ── Canonical baseline, equal-contact case (c_S = c_I = c_R = c) ───────────────
-c    = M.BASE['c_I']           # 8.0; single contact rate shared by all compartments
-beta = M.BASE['beta']          # 0.02 per-contact transmission probability
+c    = M.BASE['c_I']           # single contact rate shared by all compartments (value from BASE)
+beta = M.BASE['beta']          # per-contact transmission probability (value from BASE)
 gR   = 1.0 / M.BASE['tau_R']   # recovery rate 1/12 day^-1  (tau_R = 12 d)
 nu   = 1.0 / M.BASE['tau_m']   # demographic turnover 1/7300 day^-1 (tau_m ~ 20 yr)
 R0   = c * beta / (gR + nu)    # = 1.917 -> 1.92  (depends only on c_I = c)

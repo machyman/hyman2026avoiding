@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- own R0 = 2.0 synthetic regime.
 """
 ch8_central_comparison.py -- Figure 8.x for Chapter 8, section sec:central-comparison.
 

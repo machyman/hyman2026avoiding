@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- illustrative R0 = 3.0 regime.
 """Fig 6.3  Invasion-vs-burden parameter partition (equal-contact case).
 
 Companion text: Avoiding Pitfalls in Epidemic Modeling, Chapter 6 (Figure 6.3).

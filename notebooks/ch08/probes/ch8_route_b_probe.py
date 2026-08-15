@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- Route B synthetic regime (R0 = 2.0).
 """
 ch8_route_b_probe.py -- numerical probe for the Chapter 8 central claim (Route B).
 

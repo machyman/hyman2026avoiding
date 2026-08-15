@@ -5,16 +5,17 @@ Reproduces (written to figs/):
   ch10_tornado_R0_Istar.pdf          -- tornado of |S^q_p| for R0 and I* (closed-form indices)
   ch10_invasion_burden_schematic.pdf -- invasion- vs burden-facing parameter schematic
   ch10_prcc_R0_Istar.pdf             -- LHS-PRCC for R0 and I*
-Closed-form indices at the canonical baseline: S^{R0} over (c_I, beta, tau_R, tau_m) =
-(1, 1, 0.998, 0.0016); S^{I*}_{tau_R} = 2.087, S^{I*}_{c_I} = S^{I*}_{beta} = 1.090,
-S^{I*}_{tau_m} = -0.997.
+Closed-form indices are evaluated at the canonical baseline (sir_i_model.BASE)
+and printed by the runtime check line; the docstring intentionally carries no
+copied numbers.
 
 Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-06-22   Version 1.1
 """
 import numpy as np, matplotlib.pyplot as plt
 plt.rcParams.update({'font.family':'serif','font.size':10,'mathtext.fontset':'cm','axes.linewidth':0.8})
-cI,cS,cR,beta,tauR,taum=8.,10.,10.,0.02,12.,7300.
+from sir_i_model import BASE  # Phase 2 (S17): baseline centralized
+cI,cS,cR,beta,tauR,taum=BASE['c_I'],BASE['c_S'],BASE['c_R'],BASE['beta'],BASE['tau_R'],BASE['tau_m']
 gR=1/tauR; nu=1/taum; g=gR+nu; R0=cI*beta/g
 # closed-form indices at NEW baseline
 SR0={'$c_I$':1.0,'$\\beta$':1.0,'$\\tau_R$':gR/g,'$\\tau_m$':nu/g,'$c_S$':0.0,'$c_R$':0.0}

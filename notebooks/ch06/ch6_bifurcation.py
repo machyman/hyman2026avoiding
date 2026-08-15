@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- parameter sweep over its own grid, not the BASE point.
 """Fig 6.1  Transcritical bifurcation diagram, scaled (residence-time-independent).
 
 Companion text: Avoiding Pitfalls in Epidemic Modeling, Chapter 6 (Figure 6.1).

@@ -1,11 +1,7 @@
-import os, sys
-_HERE = os.path.dirname(os.path.abspath(__file__))
-def _sibling(name):
-    """Read a sibling probe script regardless of the working directory."""
-    return open(os.path.join(_HERE, name), encoding='utf-8').read()
-
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- Route B synthetic regime (R0 = 2.0).
 import numpy as np
-exec(_sibling('ch8_route_b_robustness.py').split('ratios=')[0])
+import os
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ch8_route_b_robustness.py')).read().split('ratios=')[0])
 truth=sim(beta_true,I0_true,N_true,120,120,'SIR')
 def fitR(data,N_a): return fit(data,N_a,120,120,'SIR','free')
 

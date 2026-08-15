@@ -1,3 +1,4 @@
+# BASELINE NOTE (Phase 2, Session 17): intentionally independent of sir_i_model.BASE -- self-contained synthetic curve.
 """Chapter 7 figure: mis-identifying the epidemic start shifts the whole timeline.
 
 Companion text: Avoiding Pitfalls in Epidemic Modeling, Chapter 7 (Natural Initial Conditions).

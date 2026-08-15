@@ -10,7 +10,7 @@ initial infectious fraction I0 = 1e-3:
   (iii) all mass in the first sub-stage         (correct only for a fresh single introduction).
 The naive choices inject a transient that biases the early total-infectious trajectory relative to the
 eigenvector initialization. Upper panel: total I(t) on a log scale. Lower panel: relative deviation from
-the eigenvector trajectory. Baseline SIR_I parameters; supercritical (c_I = 8).
+the eigenvector trajectory. Baseline SIR_I parameters (sir_i_model.BASE); supercritical regime.
 
 Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-07-08   Version 1.0
@@ -20,7 +20,9 @@ from scipy.integrate import solve_ivp
 plt.rcParams.update({'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
 B='#1f5fa8'; Rd='#c0392b'; G='#2e7d32'
 
-cS,cI,cR,beta,gR,nu = 10.,8.,10.,0.02,1/12,1/7300
+from sir_i_model import BASE  # Phase 2 (S17): baseline centralized
+cS,cI,cR,beta = BASE['c_S'],BASE['c_I'],BASE['c_R'],BASE['beta']
+gR,nu = 1/BASE['tau_R'], 1/BASE['tau_m']
 k=4; kg=k*gR
 def rhs(t,y):
     S=y[0]; I=y[1:1+k]; R=y[1+k]; Itot=I.sum(); C=cS*S+cI*Itot+cR*R
