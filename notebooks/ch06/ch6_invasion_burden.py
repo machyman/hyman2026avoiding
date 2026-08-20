@@ -11,7 +11,7 @@ Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-06-30   Version 1.2
 """
 import numpy as np, matplotlib.pyplot as plt
-plt.rcParams.update({'font.family':'serif','font.size':12,'mathtext.fontset':'cm','axes.linewidth':0.8})
+plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':12,'mathtext.fontset':'cm','axes.linewidth':0.8})
 # --- supercritical setting (equal-contact c=8): tau_R, tau_m fixed; beta calibrated to R0 ---
 c, tauR, tauM = 8.0, 12.0, 7300.0
 gR, nu = 1/tauR, 1/tauM ; d = gR+nu

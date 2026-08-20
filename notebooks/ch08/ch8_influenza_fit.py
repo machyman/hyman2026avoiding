@@ -26,7 +26,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
-plt.rcParams.update({
+plt.rcParams.update({'text.usetex':True,
     "font.family": "serif", "font.size": 10, "axes.titlesize": 11,
     "axes.labelsize": 10, "mathtext.fontset": "cm", "axes.linewidth": 0.8,
 })

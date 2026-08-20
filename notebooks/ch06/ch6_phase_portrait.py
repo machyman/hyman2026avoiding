@@ -30,7 +30,7 @@ from scipy.integrate import solve_ivp
 import sys; sys.path.insert(0, 'figs_src')   # run from the repo root, as ch7/ch10 do
 import sir_i_model as M
 
-plt.rcParams.update({'font.family': 'serif', 'font.size': 12,
+plt.rcParams.update({'text.usetex':True,'font.family': 'serif', 'font.size': 12,
                      'mathtext.fontset': 'cm', 'axes.linewidth': 0.8})
 
 # ── Canonical baseline, equal-contact case (c_S = c_I = c_R = c) ───────────────
@@ -40,7 +40,9 @@ gR   = 1.0 / M.BASE['tau_R']   # recovery rate 1/12 day^-1  (tau_R = 12 d)
 nu   = 1.0 / M.BASE['tau_m']   # demographic turnover 1/7300 day^-1 (tau_m ~ 20 yr)
 R0   = c * beta / (gR + nu)    # = 1.917 -> 1.92  (depends only on c_I = c)
 
-eq = M.endemic()               # closed form; S* = 1/R0 is exact in the equal-contact case
+# F-27.2: correct here BECAUSE this figure integrates rhs() with args=(c, c, c)
+# below -- a genuinely equal-contact system, for which S* = 1/R0 is exact.
+eq = M.endemic_equal_contact()
 Sstar, Istar = eq['S'], eq['I']
 
 # ── Five initial conditions spanning the (S, I) plane ─────────────────────────

@@ -13,7 +13,7 @@ Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-06-22   Version 1.1
 """
 import numpy as np, matplotlib.pyplot as plt
-plt.rcParams.update({'font.family':'serif','font.size':10,'mathtext.fontset':'cm','axes.linewidth':0.8})
+plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':10,'mathtext.fontset':'cm','axes.linewidth':0.8})
 from sir_i_model import BASE  # Phase 2 (S17): baseline centralized
 cI,cS,cR,beta,tauR,taum=BASE['c_I'],BASE['c_S'],BASE['c_R'],BASE['beta'],BASE['tau_R'],BASE['tau_m']
 gR=1/tauR; nu=1/taum; g=gR+nu; R0=cI*beta/g

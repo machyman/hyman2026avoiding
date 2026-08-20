@@ -16,10 +16,13 @@ Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-07-08   Version 1.2
 """
 import numpy as np, matplotlib.pyplot as plt, sys; sys.path.insert(0, 'figs_src')
-from sir_i_model import simulate, endemic, BASE  # Phase 2 (S17): BASE imported for scenario labels
-plt.rcParams.update({'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
+from sir_i_model import simulate, endemic_general, BASE  # Phase 2 (S17): BASE imported for scenario labels
+plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
 B='#1f5fa8'; Rd='#c0392b'; G='#2e7d32'
-e=endemic(); Ss,Is,Rs=e['S'],e['I'],e['R']
+# F-27.2: the general form, because these figures integrate rhs() with the
+# distinct BASE contact rates (c_S/c_I = 5).  endemic_equal_contact() would
+# print S*~0.522 here instead of the correct 0.521.
+e=endemic_general(); Ss,Is,Rs=e['S'],e['I'],e['R']
 
 def time_arrow(ax):
     """Right-pointing arrowhead at the right end of the x-axis: a time-direction cue."""
@@ -70,12 +73,12 @@ a1.annotate('peak $\\approx%.2f$ (day %d)'%(I1[ipk],round(t[ipk])),xy=(t[ipk],I1
             xytext=(t[ipk]+80,I1[ipk]*0.85),fontsize=9,color='0.25',
             arrowprops=dict(arrowstyle='->',color='0.5',lw=0.8))
 a1.set_ylabel('Infectious $I(t)$'); a1.set_ylim(0,0.17)
-a1.set_title(f'Scenario 1:  $c_I={BASE["c_I"]:g}$, $\\mathcal{{R}}_0\\approx{endemic()["R0"]:.2f}$  (supercritical outbreak)',fontsize=10.5)
+a1.set_title(f'Scenario 1:  $c_I={BASE["c_I"]:g}$, $\\mathcal{{R}}_0\\approx{endemic_general()["R0"]:.2f}$  (supercritical outbreak)',fontsize=10.5)
 a2.plot(t,I2,color=Rd,lw=2)
 for th in (200,400):a2.axvline(th,color='0.85',ls=':',lw=0.9)
 a2.text(300,I2.max()*0.72,'halves $\\approx$ every 200 d',fontsize=9,color='0.3',ha='center')
 a2.set_ylabel('Infectious $I(t)$'); a2.set_xlabel('Days'); a2.set_xlim(0,600); a2.set_ylim(0,0.00108)
-a2.set_title(f'Scenario 2:  $c_I={c2:g}$, $\\mathcal{{R}}_0\\approx{endemic(c_I=c2)["R0"]:.2f}$  (subcritical die-out)',fontsize=10.5)
+a2.set_title(f'Scenario 2:  $c_I={c2:g}$, $\\mathcal{{R}}_0\\approx{endemic_general(c_I=c2)["R0"]:.2f}$  (subcritical die-out)',fontsize=10.5)
 for a in(a1,a2):
     for s in('top','right'):a.spines[s].set_visible(False)
 time_arrow(a2)

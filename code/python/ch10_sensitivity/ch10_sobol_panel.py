@@ -33,7 +33,7 @@ import numpy as np
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from sir_i_model import BASE  # baseline centralized (Phase 2, S17)
 
-plt.rcParams.update({'font.family': 'serif', 'font.size': 10,
+plt.rcParams.update({'text.usetex':True,'font.family': 'serif', 'font.size': 10,
                      'mathtext.fontset': 'cm', 'axes.linewidth': 0.8})
 
 B, Gn, Gy = '#1f5fa8', '#2e7d32', '#888888'   # house palette (ch10_figures.py)

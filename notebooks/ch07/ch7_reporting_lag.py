@@ -17,7 +17,7 @@ Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-07-08   Version 2.0
 """
 import numpy as np, matplotlib.pyplot as plt
-plt.rcParams.update({'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
+plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
 B='#1f5fa8'; Rd='#c0392b'; G='#2e7d32'
 
 sig=np.log(2)/3.0                 # illustrative early-growth rate: doubling time 3 days

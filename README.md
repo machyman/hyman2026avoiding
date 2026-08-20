@@ -7,6 +7,11 @@ Interdisciplinary Applied Mathematics series — under review).
 
 **Rendered companion site:** <https://machyman.github.io/hyman2026avoiding>
 
+**Tracks book v2_61_1.** This line records the manuscript version this repository
+was last synchronised against, so drift between the book and the code is visible
+rather than silent. If it is many versions behind the current draft, the code here
+may not match the book's printed numbers.
+
 > **The book is under review with Springer.** The manuscript is not hosted
 > here; it will be available from the publisher, with a link added **pending
 > permission**. See [`book/`](book/).

@@ -13,7 +13,7 @@ Date:    2026-06-22   Version 1.1
 import numpy as np, matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 from numpy.fft import rfft, rfftfreq
-plt.rcParams.update({'font.family':'serif','font.size':10,'mathtext.fontset':'cm','axes.linewidth':0.8})
+plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':10,'mathtext.fontset':'cm','axes.linewidth':0.8})
 rng=np.random.default_rng(7)
 from sir_i_model import BASE  # Phase 2 (S17): baseline centralized
 cS,cIc,cR=BASE['c_S'],BASE['c_I'],BASE['c_R']; TAUM=BASE['tau_m']; nu=1/TAUM; Npop=1_000_000

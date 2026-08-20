@@ -10,7 +10,7 @@ Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-06-30   Version 1.2
 """
 import numpy as np, matplotlib.pyplot as plt
-plt.rcParams.update({'font.family':'serif','font.size':12,'mathtext.fontset':'cm','axes.linewidth':0.8})
+plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':12,'mathtext.fontset':'cm','axes.linewidth':0.8})
 fig, ax = plt.subplots(figsize=(6.2,4.0))
 ax.plot([0,1],[0,0], color='#1f5fa8', lw=2.6, label='DFE (stable)')
 ax.plot([1,3],[0,0], color='#1f5fa8', lw=2.6, ls=(0,(5,3)), label='DFE (unstable)')

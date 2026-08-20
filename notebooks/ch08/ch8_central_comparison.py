@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 from scipy.optimize import least_squares
 
-plt.rcParams.update({'font.family': 'serif', 'font.size': 10,
+plt.rcParams.update({'text.usetex':True,'font.family': 'serif', 'font.size': 10,
                      'mathtext.fontset': 'cm', 'axes.linewidth': 0.8})
 B, Rd, G, O = '#1f5fa8', '#c0392b', '#2e7d32', '#e08214'
 

@@ -17,7 +17,7 @@ Date:    2026-07-08   Version 1.0
 """
 import numpy as np, matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
-plt.rcParams.update({'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
+plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':11,'mathtext.fontset':'cm','axes.linewidth':0.8})
 B='#1f5fa8'; Rd='#c0392b'; G='#2e7d32'
 
 from sir_i_model import BASE  # Phase 2 (S17): baseline centralized
