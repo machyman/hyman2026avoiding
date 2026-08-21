@@ -108,4 +108,4 @@ correctness, and confidently-worded material draws fewer flags than hedged mater
 the natural split is one transcript per member with a joint corrected exposition, which surfaces
 disagreements about what counts as a defect. Each member's AI use is disclosed separately.
 
-Back to the [capstone index](../README.md) · [template](../TEMPLATE.md).
+Back to the [capstone index](../README.md).

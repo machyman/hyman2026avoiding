@@ -35,12 +35,12 @@ one project per term can follow that order deliberately.
 ## Data
 
 **No epidemiological data is redistributed in this repository.** Every project that needs data names
-its source and its terms of use; see [`../data/README.md`](../data/README.md) for provenance. Several
+its source and its terms of use; see [`data/README.md`](https://github.com/machyman/hyman2026avoiding/blob/main/data/README.md) for provenance. Several
 projects can be run entirely on constructed or synthetic data, which is noted in each.
 
 ## Code
 
-Chapters 3, 6, 7, 8 and 10 have supporting code under [`../notebooks/`](../notebooks/) and
-[`../code/`](../code/). Chapters 12, 14 and 17 have no chapter-specific code; those projects state so
-directly and build on [`../src/sir_i_model.py`](../src/sir_i_model.py) together with the Chapter 8
+Chapters 3, 6, 7, 8 and 10 have supporting code under [`notebooks/`](https://github.com/machyman/hyman2026avoiding/tree/main/notebooks) and
+[`code/`](https://github.com/machyman/hyman2026avoiding/tree/main/code). Chapters 12, 14 and 17 have no chapter-specific code; those projects state so
+directly and build on [`src/sir_i_model.py`](https://github.com/machyman/hyman2026avoiding/blob/main/src/sir_i_model.py) together with the Chapter 8
 and Chapter 10 material.
