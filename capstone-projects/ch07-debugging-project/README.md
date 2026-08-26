@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 7 — The $SIR_I$ Model: Simulations |
-| Effort | about 15–25 hours over 3–4 weeks |
 | Tier | chapter project — the student demonstrates that a verification technique works |
+| Scope | one simulator, one verification suite, one seeded-defect report, one memo |
+| Span | 3–4 weeks |
 | Deliverable | a working $SIR_I$ simulator with a verification suite that provably catches seeded defects |
 
 The most programming-heavy project in the catalog and the only one whose deliverable is judged
@@ -16,8 +17,10 @@ partner to Chapter 7 for students who arrive already able to code.
 ## Prerequisites
 
 Chapter 7 worked through, in particular §7.2 (Numerical Implementation), §7.7 (Verification Against
-the Analysis) and §7.8 (When the Parameters Themselves Change in Time). §7.3 and §7.4 supply the two
-scenarios the suite must reproduce. Chapter 6's analytical results are the verification targets, so
+the Analysis) and §7.8 (When the Parameters Themselves Change in Time). §7.3 (Scenario 1: Baseline
+Supercritical Outbreak) and §7.4 (Scenario 2: Subcritical Case with Reduced Infectious Contact)
+supply the two scenarios the suite must reproduce. Chapter 6's analytical results are the
+verification targets, so
 Chapter 6 is a hard prerequisite rather than a soft one.
 
 Substantial programming. This is the wrong project for a student writing their first numerical code.

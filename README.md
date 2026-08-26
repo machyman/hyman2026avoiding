@@ -7,7 +7,7 @@ Interdisciplinary Applied Mathematics series — under review).
 
 **Rendered companion site:** <https://machyman.github.io/hyman2026avoiding>
 
-**Tracks book v2_62_1.** This line records the manuscript version this repository
+**Tracks book v2_78_0.** This line records the manuscript version this repository
 was last synchronised against, so drift between the book and the code is visible
 rather than silent. If it is many versions behind the current draft, the code here
 may not match the book's printed numbers.

@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 4 — The Force from Infection: Infected Viewpoint |
-| Effort | about 6–10 hours over 1–2 weeks |
 | Tier | chapter project — the student demonstrates a technique rather than analyzing a disease |
+| Scope | one AI exposition, one audit against the chapter, one audit log, one corrected exposition |
+| Span | 1–2 weeks |
 | Deliverable | a corrected exposition, with an audit log of every defect found |
 
 The shortest project in the catalog, and a good first one: it needs no data, no fitting and no

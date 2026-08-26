@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 8 — Fitting Models to Data |
-| Effort | about 15–25 hours over 3–4 weeks |
 | Tier | chapter project — the student demonstrates that a fitting and uncertainty workflow holds up, and may do so on synthetic data |
+| Scope | one dataset, one fit, one uncertainty quantification, one identifiability check, one memo |
+| Span | 3–4 weeks |
 | Deliverable | a fitted $SIR_I$-type model with uncertainty quantified and identifiability addressed |
 
 Classified as a chapter project because the book permits synthetic data: what is being demonstrated
@@ -18,7 +19,7 @@ project, and can be graded as one.
 
 Chapter 8 worked through, in particular §8.2 (Preprocessing Surveillance Data), §8.3 (What Can Be
 Fit: An Identifiability Discussion), §8.4 (Least-Squares Fitting of $\alpha$) and §8.5 (Initial Conditions and
-the Susceptible-Fraction Question). §8.7, the seasonal influenza case study, is the worked example
+the Susceptible-Fraction Question). §8.7 (Case Study: Seasonal Influenza) is the worked example
 this project generalizes. Chapter 7's implementation is assumed — fitting a simulator you cannot
 verify produces confident nonsense.
 

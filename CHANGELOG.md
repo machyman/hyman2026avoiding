@@ -3,6 +3,17 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-08-26]
+
+### Changed
+- Version stamp: tracks book v2_78_0 (previously v2_62_1).
+- Eight capstone project READMEs (ch04, ch06, ch07, ch08, ch10, ch12, ch14,
+  ch17) updated to the conformed template used by the book's front-matter
+  project table; ch03 was already conforming.
+- `notebooks/ch03/ch3_exp_vs_linear_beta.py`: annotation and legend fonts
+  raised 8/9pt to 10pt to match the chapter's other figures (book Fig. 2.2 at
+  v2_78_0). Regenerated output is registered in the book's figure registry.
+
 ## [2026-08-15]
 
 ### Added

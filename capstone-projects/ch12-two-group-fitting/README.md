@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 12 — Two-Group Models |
-| Effort | about 20–30 hours over 3–4 weeks |
 | Tier | term project — the student analyses a stratified outbreak and defends an intervention conclusion |
+| Scope | one two-group model, one fit, one heterogeneity-aware recommendation, one memo |
+| Span | 3–4 weeks |
 | Deliverable | a fitted two-group model with a heterogeneity-aware intervention recommendation |
 
 Among the most demanding projects in the catalog: it combines Chapter 8's fitting with Chapter 12's

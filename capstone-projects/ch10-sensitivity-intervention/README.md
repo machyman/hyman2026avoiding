@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 10 — Sensitivity Analysis |
-| Effort | about 15–25 hours over 3–4 weeks |
 | Tier | term project — the student defends an intervention conclusion, not merely a ranking |
+| Scope | one sensitivity analysis, one intervention ranking, one uncertainty assessment, one memo |
+| Span | 3–4 weeks |
 | Deliverable | an intervention recommendation driven by sensitivity analysis, with uncertainty in the ranking quantified |
 
 Classified as a term project because the deliverable is a defended recommendation for a policy
@@ -19,8 +20,8 @@ Index), §10.6 (Global Sensitivity: Latin Hypercube Sampling and PRCC) and §10.
 Invasion–Burden Partition: Quantitative Version). §10.5 (Tornado Plots) supplies the presentation
 form, and §10.4 (Correlated Parameters) matters directly: the ranges sampled in step 3 are rarely
 independent, and treating them as such is the most common way a global analysis goes quietly wrong.
-Chapter 6's invasion–burden distinction is a hard prerequisite, since §10.7 is its
-quantitative version and the recommendation turns on it.
+Chapter 6's invasion–burden distinction is a hard prerequisite, since §10.7 (The Invasion–Burden
+Partition: Quantitative Version) is its quantitative version and the recommendation turns on it.
 
 Moderate programming, including sampling.
 
@@ -68,8 +69,9 @@ ranges is a graded criterion precisely because it is the step most often skipped
 
 1. **Parameter elicitation.** Establish ranges, not point values, each with a source and a stated
    distribution. Where evidence is thin, widen the range rather than guessing narrowly — and say so.
-2. **Mathematical analysis.** Compute closed-form local sensitivity indices where §10.3 provides
-   them. These are exact and cheap, and they give a check on the sampled results later.
+2. **Mathematical analysis.** Compute closed-form local sensitivity indices where §10.3 (Closed-Form
+   Sensitivity Indices for the $SIR_I$ Model) provides them. These are exact and cheap, and they
+   give a check on the sampled results later.
 3. **Numerical validation.** Run the global analysis. Confirm convergence in the sample size rather
    than assuming it: re-run at two sample sizes and check the ranking is stable. Compare against the
    local indices and, where they disagree, diagnose why rather than choosing the congenial answer.

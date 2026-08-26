@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 17 — COVID-19: A Case Study |
-| Effort | about 15–25 hours over 3–4 weeks |
 | Tier | term project — the student analyses a disease and defends a corrected conclusion about it |
+| Scope | one published estimate, one re-analysis, one uncertainty quantification, one memo |
+| Span | 3–4 weeks |
 | Deliverable | a corrected $\mathcal{R}_0$ or $\mathcal{R}_e(t)$ estimate with quantified uncertainty, and a documented critique of the original |
 
 The only project in the catalog whose subject is a published paper. It is the closest thing the
@@ -16,9 +17,10 @@ consistently report it as the one that changed how they read literature.
 ## Prerequisites
 
 Chapter 17 worked through, in particular §17.3 (Model Formulation), §17.4 (Parameter Estimation and
-Fitting) and §17.7 (Lessons from the COVID-19 Case Study). §17.2 supplies the epidemiological
-context needed to judge whether an original analysis's assumptions were reasonable *at the time it
-was written* — a distinction objective 4 depends on. Chapters 8 and 9 are hard prerequisites.
+Fitting) and §17.7 (Lessons from the COVID-19 Case Study). §17.2 (COVID-19: Epidemiological Context)
+supplies the epidemiological context needed to judge whether an original analysis's assumptions were
+reasonable *at the time it was written* — a distinction objective 4 depends on. Chapters 8 and 9 are
+hard prerequisites.
 
 Moderate programming.
 

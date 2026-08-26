@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 6 — The $SIR_I$ Model: Analysis |
-| Effort | about 13–20 hours over 2–3 weeks |
 | Tier | term project — the student analyses a disease and defends a conclusion about it |
+| Scope | one pathogen, one equilibrium analysis, one invasion--burden argument, one memo |
+| Span | 2–3 weeks |
 | Deliverable | an endemic-equilibrium analysis for one pathogen, with the invasion–burden distinction argued explicitly |
 
 The shortest term project, and the natural first one for a course that wants students working with a
@@ -15,8 +16,10 @@ real pathogen early. It asks for analysis rather than fitting, so it can run bef
 ## Prerequisites
 
 Chapter 6 worked through, in particular §6.5 (The Endemic Equilibrium), §6.6 (Stability of the
-Endemic Equilibrium) and §6.7 (The Invasion–Burden Distinction). §6.1 and §6.3, the two derivations
-of $\mathcal{R}_0$, are needed because the project asks which one the chosen pathogen's literature actually
+Endemic Equilibrium) and §6.7 (The Invasion–Burden Distinction). §6.1 (The Basic Reproductive
+Number: Heuristic Derivation) and §6.3 (The Basic Reproductive Number: Next-Generation Matrix), the
+two derivations of $\mathcal{R}_0$, are needed because the project asks which one the chosen
+pathogen's literature actually
 used. Chapter 5's derivation is assumed.
 
 Light programming, at the level of `notebooks/ch06/`.

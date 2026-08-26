@@ -5,8 +5,9 @@
 | | |
 |---|---|
 | Chapter | 14 — Vector-Borne Diseases |
-| Effort | about 20–30 hours over 3–4 weeks |
 | Tier | term project — the student analyses a vector-borne disease and defends an intervention conclusion |
+| Scope | one pathogen, one vector-host model, one fit, one sensitivity-weighted recommendation, one memo |
+| Span | 3–4 weeks |
 | Deliverable | a fitted vector-host model with sensitivity-weighted intervention recommendations |
 
 The most parameter-hungry project in the catalog. Vector-host models carry entomological
@@ -76,7 +77,7 @@ one, and discovering how strongly the values depend on setting, is the core of t
    are fitted or sourced conventionally. Vector-side entomological parameters are almost always
    fixed from the literature, and each must record species, temperature and setting. A biting rate
    from a different species in a different climate is not a value, it is a guess with a citation.
-2. **Mathematical analysis.** Derive $\mathcal{R}_0$ following §14.4 and verify the implementation reproduces
+2. **Mathematical analysis.** Derive $\mathcal{R}_0$ following §14.4 (The Ross-Macdonald Reproductive Number) and verify the implementation reproduces
    it. Establish what the system reduces to as the vector dynamics become fast relative to the host —
    the reduction that connects this chapter to the direct-transmission models, and a check on the
    implementation.
@@ -122,9 +123,9 @@ than a finding.
 
 ## Notes for instructors
 
-**Scaling.** Supplying a vetted entomological parameter table converts this from a 30-hour project
-to roughly 20, at the cost of the elicitation skill — a reasonable trade in a course where Chapter 10
-already covers elicitation. Assigning pathogens rather than allowing free choice prevents the whole
+**Scaling.** Supplying a vetted entomological parameter table removes the parameter-elicitation
+step from the scope, at the cost of the elicitation skill — a reasonable trade in a course where
+Chapter 10 already covers elicitation. Assigning pathogens rather than allowing free choice prevents the whole
 class choosing dengue.
 
 **Common failure modes.** Entomological parameters transported across species or climate without

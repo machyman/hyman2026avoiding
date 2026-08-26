@@ -28,6 +28,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+# Z13 (Zhuolin, Chs 1-2 review; Session 84, 2026-08-26): annotation and legend
+# fonts raised 8/9 -> 10 to match the 10pt base used across the chapter's figures.
 plt.rcParams.update({'text.usetex':True,'font.family': 'serif', 'font.size': 10,
                      'mathtext.fontset': 'cm', 'axes.linewidth': 0.8})
 B, Rd, G, O = '#1f5fa8', '#c0392b', '#2e7d32', '#e08214'
@@ -49,18 +51,18 @@ ax.plot(x, exact, '-', color=B, lw=1.9,
 ax.plot(x, linear, '--', color=Rd, lw=1.7,
         label=r'linear: $\beta \approx \rho\tau_c$')
 
-ax.text(X_VALID / 2, 1.30, 'within 10%', ha='center', fontsize=8, color='#8a5a12')
+ax.text(X_VALID / 2, 1.30, 'within 10%', ha='center', fontsize=10, color='#8a5a12')
 ax.annotate(r'$\beta = 1$', xy=(2.72, 1.0), xytext=(2.72, 1.06),
-            ha='right', fontsize=8, color='0.4')
+            ha='right', fontsize=10, color='0.4')
 ax.annotate('linear exceeds unity\n(not a probability)', xy=(1.0, 1.0),
-            xytext=(1.30, 0.55), fontsize=8, color=Rd,
+            xytext=(1.30, 0.55), fontsize=10, color=Rd,
             arrowprops=dict(arrowstyle='->', color=Rd, lw=0.8))
 
 ax.set_xlim(0, 3)
 ax.set_ylim(0, 1.45)
 ax.set_xlabel(r'contact-level transmission dose $\rho\tau_c$')
 ax.set_ylabel(r'per-contact transmission probability $\beta$')
-ax.legend(frameon=False, fontsize=9, loc='lower right')
+ax.legend(frameon=False, fontsize=10, loc='lower right')
 for s in ('top', 'right'):
     ax.spines[s].set_visible(False)
 
