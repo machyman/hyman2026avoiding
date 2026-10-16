@@ -19,7 +19,7 @@ consistently report it as the one that changed how they read literature.
 Chapter 17 worked through, in particular §17.3 (Model Formulation), §17.4 (Parameter Estimation and
 Fitting) and §17.7 (Lessons from the COVID-19 Case Study). §17.2 (COVID-19: Epidemiological Context)
 supplies the epidemiological context needed to judge whether an original analysis's assumptions were
-reasonable *at the time it was written* — a distinction objective 4 depends on. Chapters 8 and 9 are
+reasonable *at the time it was written* — a distinction objective 4 depends on. Chapters 7 and 8 are
 hard prerequisites.
 
 Moderate programming.
@@ -51,10 +51,9 @@ rewards students who can tell the difference.
 
 ## Materials
 
-**No chapter-specific code ships in this repository for Chapter 17.** Recorded plainly rather than
-implied: every printed repository path must resolve, and this one would not.
-
-**Provided in this repository.** `src/sir_i_model.py` for the forward model.
+**Provided in this repository.** `notebooks/ch17/ch17_figures.py`, the chapter's own SEIAR model, as the
+forward model; it computes the readings of the case-count ratio that the chapter's estimation section reports.
+`src/sir_i_model.py` for the SIR baseline.
 `notebooks/ch08/ch8_preprocessing.py` for surveillance preprocessing, which is where a large share of
 the methodological issues in this literature actually live. `notebooks/ch08/ch8_influenza_fit.py`
 as the fitting pattern. `notebooks/ch09/ch9_figures.py` for bootstrap and profile-likelihood

@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Chapter | 3 — The Force of Infection: Susceptible Viewpoint |
+| Chapter | 2 — The Force of Infection: Susceptible Viewpoint |
 | Tier | chapter project — the student demonstrates that a derivation technique extends, rather than analyzing a disease |
 | Scope | one contact structure, one derivation, one validation sweep, one memo |
 | Span | 3–4 weeks |
@@ -15,7 +15,7 @@ longer than three of the term projects while remaining squarely about method. Th
 choose and no data to fit. What is being demonstrated is that the chapter's stochastic-Poisson
 argument survives contact with a structure it was not written for.
 
-**What moves the estimate.** Chapter 3 prints about 20–30 hours over 3–4 weeks. That figure describes
+**What moves the estimate.** Chapter 2 prints about 20–30 hours over 3–4 weeks. That figure describes
 a solo student who already handles graphs and works without AI assistance. Choosing a network
 structure without that background roughly doubles it. A team of two shortens elapsed time but not
 total effort. Using AI as a checked collaborator relocates effort rather than removing it: whatever
@@ -24,10 +24,10 @@ description of one case rather than a promise.
 
 ## Prerequisites
 
-Chapter 3 worked through in full, in particular §3.1 (The Susceptible Individual's Perspective) and
-§3.2 (The Force of Infection from the Stochastic Contact Process), which supply the Poisson argument
-this project generalizes. §3.3 (Discrete-Time Issues) matters if the chosen structure is simulated on
-a daily step. Chapter 2's infection equation is assumed.
+Chapter 2 worked through in full, in particular §2.1 (The Susceptible Individual's Perspective) and
+§2.2 (The Force of Infection from the Stochastic Contact Process), which supply the Poisson argument
+this project generalizes. §2.3 (Discrete-Time Issues) matters if the chosen structure is simulated on
+a daily step. Chapter 1's infection equation is assumed.
 
 Programming is needed for the validation step only, at the level of `notebooks/ch03/`. Students
 choosing a network structure need enough graph handling to build and sample an adjacency structure;
@@ -48,7 +48,7 @@ By the end, the student can:
 
 ## The task
 
-The book's specification, from Chapter 3's exercises:
+The book's specification, from Chapter 2's exercises:
 
 > A multi-week project deriving the chapter's force-of-infection expression
 > $\lambda = c_S \beta P_I$ for one of several structurally richer settings (heterogeneous contact
@@ -98,12 +98,12 @@ derivation is the deliverable; supplying one converts the project into a transcr
 5. **Disclosure.** Record every AI interaction: what was asked, what was returned, what was kept and
    what was rejected. Rejected suggestions matter as much as accepted ones.
 6. **Final memo.** The derivation, the validation, the audit and the limiting case, written for a
-   reader who knows Chapter 3 but not the chosen structure.
+   reader who knows Chapter 2 but not the chosen structure.
 
 ## Deliverable
 
 A memo of roughly 3,000–5,000 words with the derivation set out in full, plus the validation code
-and the AI disclosure log as appendices. The audience is a classmate who has read Chapter 3: the
+and the AI disclosure log as appendices. The audience is a classmate who has read Chapter 2: the
 memo should let them reconstruct the derivation without the source the structure came from.
 
 Figures: at minimum one showing derived against simulated hazard over the swept parameter, with the

@@ -1,4 +1,6 @@
-# Chapter 7
+# Chapter 6
+
+The directory keeps the earlier chapter number because the book prints this path; from book v2_86_0 the chapters are renumbered (the old Chapter 1 left the book).
 
 Simulation — scenario trajectories, the effective reproductive number over time, and the reporting-lag time-shift.
 

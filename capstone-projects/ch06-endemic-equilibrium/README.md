@@ -4,23 +4,23 @@
 
 | | |
 |---|---|
-| Chapter | 6 — The $SIR_I$ Model: Analysis |
+| Chapter | 5 — The SIR Model: Analysis |
 | Tier | term project — the student analyses a disease and defends a conclusion about it |
 | Scope | one pathogen, one equilibrium analysis, one invasion--burden argument, one memo |
 | Span | 2–3 weeks |
 | Deliverable | an endemic-equilibrium analysis for one pathogen, with the invasion–burden distinction argued explicitly |
 
 The shortest term project, and the natural first one for a course that wants students working with a
-real pathogen early. It asks for analysis rather than fitting, so it can run before Chapter 8.
+real pathogen early. It asks for analysis rather than fitting, so it can run before Chapter 7.
 
 ## Prerequisites
 
-Chapter 6 worked through, in particular §6.5 (The Endemic Equilibrium), §6.6 (Stability of the
-Endemic Equilibrium) and §6.7 (The Invasion–Burden Distinction). §6.1 (The Basic Reproductive
-Number: Heuristic Derivation) and §6.3 (The Basic Reproductive Number: Next-Generation Matrix), the
+Chapter 5 worked through, in particular §5.5 (The Endemic Equilibrium), §5.6 (Stability of the
+Endemic Equilibrium) and §5.7 (The Invasion–Burden Distinction). §5.1 (The Basic Reproductive
+Number: Heuristic Derivation) and §5.3 (The Basic Reproductive Number: Next-Generation Matrix), the
 two derivations of $\mathcal{R}_0$, are needed because the project asks which one the chosen
 pathogen's literature actually
-used. Chapter 5's derivation is assumed.
+used. Chapter 4's derivation is assumed.
 
 Light programming, at the level of `notebooks/ch06/`.
 
@@ -33,13 +33,13 @@ By the end, the student can:
 2. Compute the endemic equilibrium and assess its stability for that pathogen.
 3. Argue whether the pathogen's public-health burden is invasion-driven or burden-driven, using the
    chapter's partition rather than intuition.
-4. Identify at least one place where the $SIR_I$ structure is wrong for the chosen pathogen, and say
+4. Identify at least one place where the SIR structure is wrong for the chosen pathogen, and say
    what the error costs.
 5. Defend a conclusion about the pathogen to a reader who may disagree.
 
 ## The task
 
-The book's specification, from Chapter 6's exercises:
+The book's specification, from Chapter 5's exercises:
 
 > Applying the chapter's analytical, numerical, and AI-collaborative tools to a pathogen with
 > substantial endemic prevalence (suggested options include hepatitis B, tuberculosis, measles, or
@@ -47,7 +47,7 @@ The book's specification, from Chapter 6's exercises:
 
 The suggestions are genuinely suggestions. Any pathogen with a documented endemic state and
 published parameter estimates works. HIV in a defined subpopulation is the most demanding of the
-four, because the $SIR_I$ structure fits it worst — which some students will find the most
+four, because the SIR structure fits it worst — which some students will find the most
 interesting part, and which step 4 is designed to surface.
 
 ## Materials
@@ -80,7 +80,7 @@ teaches.
 3. **Numerical validation.** Confirm the analytical equilibrium against a long-run simulation, and
    confirm the stability conclusion by perturbing away from it. An equilibrium that the simulation
    does not approach is a finding to chase, not a discrepancy to note.
-4. **AI-collaborative audit.** Ask an AI system where the $SIR_I$ structure misrepresents this
+4. **AI-collaborative audit.** Ask an AI system where the SIR structure misrepresents this
    pathogen — no latent class for TB, no waning for measles, no risk structure for HIV. Then check
    its claims against the chapter. This step routinely produces both a real structural criticism and
    a confident invention; separating them is the exercise.

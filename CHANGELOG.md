@@ -3,6 +3,32 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-10-15]
+
+### Added
+- `notebooks/ch17/` — the Chapter 17 (COVID-19 case study) script, `ch17_figures.py`, which the book
+  cites by path, with its README.
+
+### Changed
+- Version stamp: tracks book v2_87_1 (previously v2_78_0). From v2_86_0 the book's chapters are
+  renumbered; directory names keep the numbers the book prints, and each README names its chapter.
+- The book's notation, from v2_87_0 (v2_87_1 sets the remaining model names upright): fractions of the carrying capacity are lowercase (s, i, r, n, j),
+  counts are uppercase (S, I, R, N, J), model names are upright (SIR), and the sensitivity indices print
+  as Υ (local) and 𝒮 (Sobol). Twelve scripts carry the new figure labels; only label strings changed,
+  so every plotted value is as before: `notebooks/ch06/` (three scripts), `notebooks/ch07/ch7_figures.py`,
+  `notebooks/ch08/` (two scripts), `notebooks/ch09/ch9_figures.py`, `notebooks/ch10/ch10_figures.py`,
+  `notebooks/ch11/ch11_multistage_ic.py`, `notebooks/ch17/ch17_figures.py` and two scripts in
+  `code/python/ch10_sensitivity/`.
+- Four of those scripts also come to the book's current versions: `ch7_figures.py` (no axis limit
+  clipping the peak), `ch8_preprocessing.py` (v1.2), `ch9_figures.py` (v2.5) and `ch10_figures.py`
+  (v1.2, the PRCC sample on [p/2, 2p]).
+- The capstone index and all nine capstone READMEs: chapter and section references follow the new
+  numbering, and the model is named SIR.
+- Quick start in `README.md` and `index.md`: run scripts with `PYTHONPATH=src` so they find the shared
+  model. `REPRODUCIBILITY.md` gains a section on this repository's layout and the v2_86_0 counts.
+- Chapter numbers in `notebooks/README.md`, the per-chapter READMEs,
+  `code/python/ch10_sensitivity/README.md` and `data/README.md`.
+
 ## [2026-08-26]
 
 ### Changed

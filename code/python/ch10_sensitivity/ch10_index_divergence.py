@@ -42,9 +42,9 @@ S_tm = np.abs(1.0 - f_taum * R0 / (R0 - 1.0))
 
 fig, a = plt.subplots(figsize=(5.4, 3.5))
 a.plot(R0, S_cI, color=B, lw=1.6,
-       label=r'$S^{I^*}_{c_I}=S^{I^*}_{\beta}=1/(\mathcal{R}_0-1)$')
-a.plot(R0, S_tR, color=Gn, lw=1.6, label=r'$S^{I^*}_{\tau_R}$')
-a.plot(R0, S_tm, color=Gy, lw=1.4, ls='-.', label=r'$|S^{I^*}_{\tau_m}|$')
+       label=r'$\Upsilon^{i^*}_{c_I}=\Upsilon^{i^*}_{\beta}=1/(\mathcal{R}_0-1)$')
+a.plot(R0, S_tR, color=Gn, lw=1.6, label=r'$\Upsilon^{i^*}_{\tau_R}$')
+a.plot(R0, S_tm, color=Gy, lw=1.4, ls='-.', label=r'$|\Upsilon^{i^*}_{\tau_m}|$')
 
 a.axvline(R0_base, color='k', lw=0.8, ls='--')
 a.annotate(r'baseline $\mathcal{R}_0\approx %.2f$' % R0_base,
@@ -55,7 +55,7 @@ for y in (1.0 / (R0_base - 1.0), f_tauR * R0_base / (R0_base - 1.0), 1.0):
 a.set_xlim(1.0, 5.0)
 a.set_ylim(0, 8)
 a.set_xlabel(r'$\mathcal{R}_0$')
-a.set_ylabel(r'sensitivity index magnitude $|S^{I^*}_p|$')
+a.set_ylabel(r'sensitivity index magnitude $|\Upsilon^{i^*}_p|$')
 a.legend(frameon=False, fontsize=9, loc='upper right')
 fig.tight_layout()
 fig.savefig('figs/ch10_index_divergence.pdf')

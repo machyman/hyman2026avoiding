@@ -11,6 +11,9 @@ copied numbers.
 
 Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-06-22   Version 1.1
+Revised: 2026-10-11   Version 1.2 (F-168.2, RG-168.1b: the PRCC sample is uniform on [p/2, 2p], the factor-of-2
+                      design the caption states and the Sobol panel uses, in place of +/-20%; I* is 0 where
+                      R0 <= 1, as in the Sobol panel. The tornado and schematic are unchanged.)
 """
 import numpy as np, matplotlib.pyplot as plt
 plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':10,'mathtext.fontset':'cm','axes.linewidth':0.8})
@@ -25,13 +28,13 @@ B,Rd,Gn,Gy='#1f5fa8','#c0392b','#2e7d32','#888888'
 
 # ---- Fig 1: tornado (two panels) ----
 fig,ax=plt.subplots(1,2,figsize=(9.4,3.6))
-for a,(D,ttl) in zip(ax,[(SR0,'Sensitivity of $\\mathcal{R}_0$'),(SIs,'Sensitivity of $I^*$')]):
+for a,(D,ttl) in zip(ax,[(SR0,'Sensitivity of $\\mathcal{R}_0$'),(SIs,'Sensitivity of $i^*$')]):
     items=sorted(D.items(),key=lambda kv:abs(kv[1]))
     names=[k for k,_ in items]; vals=[v for _,v in items]
     cols=[Rd if v<0 else B for v in vals]
     a.barh(range(len(vals)),vals,color=cols,height=0.6,edgecolor='k',linewidth=0.5)
     a.set_yticks(range(len(names))); a.set_yticklabels(names)
-    a.axvline(0,color='k',lw=0.8); a.set_title(ttl,fontsize=10); a.set_xlabel('normalized sensitivity $S$')
+    a.axvline(0,color='k',lw=0.8); a.set_title(ttl,fontsize=10); a.set_xlabel('normalized sensitivity $\\Upsilon$')
     for i,v in enumerate(vals):
         a.text(v+(0.04 if v>=0 else -0.04),i,f'{v:+.2f}',va='center',ha='left' if v>=0 else 'right',fontsize=7.5)
     for s in('top','right'):a.spines[s].set_visible(False)
@@ -49,14 +52,14 @@ for lab,(x,y,c) in pts.items():
     a.scatter([x],[y],s=90,color=c,edgecolor='k',linewidth=0.6,zorder=3)
     a.annotate(lab,(x,y),xytext=(8,6),textcoords='offset points',fontsize=11)
 a.set_xlabel('normalized sensitivity of $\\mathcal{R}_0$ (invasion)')
-a.set_ylabel('normalized sensitivity of $I^*$ (burden)')
+a.set_ylabel('normalized sensitivity of $i^*$ (burden)')
 a.text(1.05,0.15,'invasion',color=B,fontsize=9); a.text(0.06,-1.0,'burden',color='#e8820c',fontsize=9)
 a.text(1.02,2.0,'mixed',color=Gn,fontsize=9)
 a.set_xlim(-0.4,1.4); a.set_ylim(-1.4,2.4)
 for s in('top','right'):a.spines[s].set_visible(False)
 fig.tight_layout(); fig.savefig('figs/ch10_invasion_burden_schematic.pdf'); plt.close(fig); print('schematic ok')
 
-# ---- Fig 3: PRCC (LHS n=5000, uniform +/-20% around new baseline) ----
+# ---- Fig 3: PRCC (LHS n=5000, each parameter uniform on [p/2, 2p]: the factor-of-2 design of the caption) ----
 rng=np.random.default_rng(11); n=5000
 base={'cI':cI,'cS':cS,'cR':cR,'beta':beta,'tauR':tauR,'taum':taum}
 order=['cI','beta','tauR','taum','cS','cR']
@@ -64,8 +67,10 @@ def lhs(n,k):
     u=(np.argsort(rng.random((n,k)),axis=0)+rng.random((n,k)))/n
     return u
 U=lhs(n,len(order)); X=np.zeros_like(U)
-for j,p in enumerate(order): X[:,j]=base[p]*(0.8+0.4*U[:,j])  # +/-20%
+for j,p in enumerate(order): X[:,j]=base[p]*(0.5+1.5*U[:,j])  # uniform on [p/2, 2p] (v1.2; was +/-20%)
 gg=1/X[:,2]+1/X[:,3]; R0s=X[:,0]*X[:,1]/gg; Is=1.0*(1/X[:,3])/gg*(1-1/R0s)
+Is=np.where(R0s>1,Is,0.0)   # no endemic equilibrium where R0 <= 1 (v1.2; the Sobol panel's convention)
+print(f'PRCC sample: share with R0 <= 1 = {np.mean(R0s<=1):.3f}')
 def prcc(X,y):
     from numpy import argsort
     R=np.apply_along_axis(lambda c:argsort(argsort(c)),0,X).astype(float)
@@ -79,7 +84,7 @@ def prcc(X,y):
 pr_R0=prcc(X,R0s); pr_I=prcc(X,Is)
 labels=['$c_I$','$\\beta$','$\\tau_R$','$\\tau_m$','$c_S$','$c_R$']
 fig,ax=plt.subplots(1,2,figsize=(9.4,3.6))
-for a,(pr,ttl) in zip(ax,[(pr_R0,'PRCC for $\\mathcal{R}_0$'),(pr_I,'PRCC for $I^*$')]):
+for a,(pr,ttl) in zip(ax,[(pr_R0,'PRCC for $\\mathcal{R}_0$'),(pr_I,'PRCC for $i^*$')]):
     o=np.argsort(np.abs(pr)); v=pr[o]; nm=[labels[i] for i in o]
     a.barh(range(len(v)),v,color=[Rd if x<0 else B for x in v],height=0.6,edgecolor='k',linewidth=0.5)
     a.set_yticks(range(len(nm))); a.set_yticklabels(nm); a.axvline(0,color='k',lw=0.8)

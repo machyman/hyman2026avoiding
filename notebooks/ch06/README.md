@@ -1,6 +1,8 @@
-# Chapter 6
+# Chapter 5
 
-SIR_I analysis — basic reproductive number, next-generation matrix, phase portrait, and transcritical bifurcation.
+The directory keeps the earlier chapter number because the book prints this path; from book v2_86_0 the chapters are renumbered (the old Chapter 1 left the book).
+
+SIR analysis — basic reproductive number, next-generation matrix, phase portrait, and transcritical bifurcation.
 
 Scripts:
 - `ch6_bifurcation.py`

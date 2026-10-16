@@ -2,7 +2,7 @@
 
 Empirical datasets used in the book's case studies, with provenance.
 
-## WSU 2009 H1N1 (Chapters 8–9)
+## WSU 2009 H1N1 (Chapters 7–8)
 
 The Washington State University 2009 H1N1 outbreak dataset is **freely available
 from the MIDAS Network data catalog** at <https://catalog.midasnetwork.us>. It is

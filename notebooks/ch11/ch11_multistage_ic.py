@@ -49,7 +49,7 @@ fig,(a1,a2)=plt.subplots(2,1,figsize=(7.2,5.6),sharex=True,gridspec_kw={'height_
 a1.semilogy(t,Iev,color=B,lw=2,ls='-',label='growth-phase distribution (correct)')
 a1.semilogy(t,I1,color=G,lw=1.6,ls='-.',label='all in first sub-stage')
 a1.semilogy(t,Ibal,color=Rd,lw=1.6,ls='--',label='balanced (equal across sub-stages)')
-a1.set_ylabel('Total infectious $\\sum_j I_j(t)$  (log)')
+a1.set_ylabel('Total infectious $\\sum_j i_j(t)$  (log)')
 a1.set_title('Same total seed, three sub-stage initializations of an Erlang-$4$ infectious period',fontsize=10.5)
 a1.legend(frameon=False,fontsize=8.5,loc='lower right')
 a2.axhline(0,color='0.5',lw=0.8)

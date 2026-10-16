@@ -7,7 +7,7 @@ Interdisciplinary Applied Mathematics series — under review).
 
 **Rendered companion site:** <https://machyman.github.io/hyman2026avoiding>
 
-**Tracks book v2_78_0.** This line records the manuscript version this repository
+**Tracks book v2_87_1.** This line records the manuscript version this repository
 was last synchronised against, so drift between the book and the code is visible
 rather than silent. If it is many versions behind the current draft, the code here
 may not match the book's printed numbers.
@@ -23,9 +23,9 @@ numerical results, organized to match the book's Appendix B:
 
 | Path | Contents |
 |---|---|
-| [`notebooks/`](notebooks/) | Per-chapter scripts that reproduce each chapter's figures and computations (`ch03/`, `ch06/`–`ch11/`) |
+| [`notebooks/`](notebooks/) | Per-chapter scripts that reproduce each chapter's figures and computations (`ch03/`, `ch06/`–`ch11/`, `ch17/`) |
 | [`src/`](src/) | Shared Python modules — the `sir_i_model.py` integrator used across chapters |
-| [`code/`](code/python/ch10_sensitivity/) | Standalone modules the book cites by path — currently the Chapter 10 sensitivity module |
+| [`code/`](code/python/ch10_sensitivity/) | Standalone modules the book cites by path — currently the Chapter 9 sensitivity module |
 | [`capstone-projects/`](capstone-projects/) | The book's chapter capstone projects, one directory per project |
 | [`data/`](data/) | Provenance and pointers for the empirical case-study datasets |
 | [`labs/`](labs/) | Guided lab notebooks *(in preparation)* |
@@ -41,10 +41,11 @@ git clone https://github.com/machyman/hyman2026avoiding
 cd hyman2026avoiding
 pip install -r requirements.txt
 mkdir -p figs
-python notebooks/ch07/ch7_figures.py     # writes figures to figs/
+PYTHONPATH=src python notebooks/ch07/ch7_figures.py     # writes figures to figs/
 ```
 
-Run scripts from the repository root. Anything involving randomness is seeded,
+Run scripts from the repository root with `PYTHONPATH=src`, which lets them import
+the shared model. Anything involving randomness is seeded,
 so results are reproducible; the conventions are documented in
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 

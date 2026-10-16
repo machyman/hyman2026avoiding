@@ -80,7 +80,7 @@ ax[0].plot(wk, J*sc, "-", color="#1f3b66", lw=1.8,
 ax[0].text(0.96, 0.90, r"$\hat{\mathcal{R}}_0 = %.2f$" % R0_inf,
            transform=ax[0].transAxes, ha="right", va="top", fontsize=12,
            bbox=dict(boxstyle="round,pad=0.3", fc="#eef2f8", ec="#1f3b66", lw=0.8))
-ax[0].set_title(r"(a) Infected viewpoint $\;\hat\alpha = J/I$")
+ax[0].set_title(r"(a) Infected viewpoint $\;\hat\alpha = j/i$")
 ax[0].set_xlabel("MMWR week (2017--2018 season)")
 ax[0].set_ylabel(r"weekly ILI ($\%$)")
 ax[0].legend(frameon=False, fontsize=8.5, loc="upper left")
@@ -98,7 +98,7 @@ for F0, col in zip(F0s, cols):
     ax[1].plot(tt/7.0+40.0, JJ*sc, "-", color=col, lw=1.4,
                label=r"$F_0=%.1f,\ \hat{\mathcal{R}}_0=%.2f$" % (F0, R0_lam),
                zorder=3)
-ax[1].set_title(r"(b) Susceptible viewpoint $\;\hat\lambda = J/S$")
+ax[1].set_title(r"(b) Susceptible viewpoint $\;\hat\lambda = j/s$")
 ax[1].set_xlabel("MMWR week (2017--2018 season)")
 ax[1].set_ylabel(r"weekly ILI ($\%$)")
 ax[1].legend(frameon=False, fontsize=7.6, loc="upper left", handlelength=1.4)

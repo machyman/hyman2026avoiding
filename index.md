@@ -41,7 +41,7 @@ instructors teaching from the book.
 ## Navigating the materials
 
 - **[Code](https://github.com/machyman/hyman2026avoiding/tree/main/notebooks)** —
-  per-chapter scripts (`ch06`–`ch11`) that reproduce the figures, built on a
+  per-chapter scripts (`ch03`, `ch06`–`ch11`, `ch17`) that reproduce the figures, built on a
   [shared model](https://github.com/machyman/hyman2026avoiding/tree/main/src).
 - **[Data](https://github.com/machyman/hyman2026avoiding/tree/main/data)** —
   provenance and pointers for the case-study datasets (e.g., the WSU 2009 H1N1
@@ -59,10 +59,10 @@ instructors teaching from the book.
 ```
 pip install -r requirements.txt
 mkdir -p figs
-python notebooks/ch07/ch7_figures.py
+PYTHONPATH=src python notebooks/ch07/ch7_figures.py
 ```
 
-Run from the repository root; figures are written to `figs/`. Anything involving
+Run from the repository root with `PYTHONPATH=src`; figures are written to `figs/`. Anything involving
 randomness is seeded for reproducibility.
 
 ## Citing

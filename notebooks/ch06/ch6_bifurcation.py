@@ -20,7 +20,7 @@ ax.plot(1,0,'o', color='black', ms=7, zorder=6)
 ax.annotate('transcritical\nthreshold', xy=(1,0), xytext=(1.42,0.07), fontsize=10,
             arrowprops=dict(arrowstyle='->', lw=1.0, color='black'))
 ax.set_xlabel(r'Basic reproductive number $\mathcal{R}_0$')
-ax.set_ylabel(r'$1 - 1/\mathcal{R}_0 = 1 - S^{*}/N^{*}$')
+ax.set_ylabel(r'$1 - 1/\mathcal{R}_0 = 1 - s^{*}/n^{*}$')
 ax.set_xlim(0,3); ax.set_ylim(-0.04,0.72)
 ax.legend(loc='upper left', frameon=False, fontsize=10.5)
 for s in ('top','right'): ax.spines[s].set_visible(False)

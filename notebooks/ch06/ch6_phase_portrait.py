@@ -71,18 +71,18 @@ for ic, col in zip(ICs, cols):
                 arrowprops=dict(arrowstyle='-|>', color=col, lw=1.3, mutation_scale=15))
 
 ax.plot(Sstar, Istar, '*', color='#c0392b', ms=17, mec='k', mew=0.6, zorder=6,
-        label=r'endemic equilibrium $(S^*,I^*)$')
+        label=r'endemic equilibrium $(s^*,i^*)$')
 ax.plot(1.0, 0.0, 'o', color='k', ms=7, zorder=7,
-        label=r'disease-free equilibrium $(N^{\mathrm{c}},0)$')
+        label=r'disease-free equilibrium $(1,0)$')
 
 allS = np.concatenate([Y[0] for Y, _, _ in traj])
 allI = np.concatenate([Y[1] for Y, _, _ in traj])
 ax.set_xlim(max(allS.min() - 0.03, 0.0), min(allS.max() + 0.05, 1.05))
 ax.set_ylim(-0.006, allI.max() * 1.10)
 
-ax.set_xlabel(r'susceptible fraction $S$')
-ax.set_ylabel(r'infectious fraction $I$')
-ax.set_title(r'$SIR_I$ phase portrait (equal contact, $\mathcal{R}_0 = %.2f$)' % R0)
+ax.set_xlabel(r'susceptible fraction $s$')
+ax.set_ylabel(r'infectious fraction $i$')
+ax.set_title(r'SIR phase portrait (equal contact, $\mathcal{R}_0 = %.2f$)' % R0)
 ax.legend(loc='upper right', frameon=False, fontsize=10)
 fig.tight_layout()
 fig.savefig('figs/ch6_phase_portrait.pdf', dpi=150, bbox_inches='tight')

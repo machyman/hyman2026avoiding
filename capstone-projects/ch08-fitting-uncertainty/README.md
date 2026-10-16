@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| Chapter | 8 — Fitting Models to Data |
+| Chapter | 7 — Fitting Models to Data |
 | Tier | chapter project — the student demonstrates that a fitting and uncertainty workflow holds up, and may do so on synthetic data |
 | Scope | one dataset, one fit, one uncertainty quantification, one identifiability check, one memo |
 | Span | 3–4 weeks |
-| Deliverable | a fitted $SIR_I$-type model with uncertainty quantified and identifiability addressed |
+| Deliverable | a fitted SIR-type model with uncertainty quantified and identifiability addressed |
 
 Classified as a chapter project because the book permits synthetic data: what is being demonstrated
 is that the workflow is sound, not that a conclusion about a particular epidemic is right. A student
@@ -17,10 +17,10 @@ project, and can be graded as one.
 
 ## Prerequisites
 
-Chapter 8 worked through, in particular §8.2 (Preprocessing Surveillance Data), §8.3 (What Can Be
-Fit: An Identifiability Discussion), §8.4 (Least-Squares Fitting of $\alpha$) and §8.5 (Initial Conditions and
-the Susceptible-Fraction Question). §8.7 (Case Study: Seasonal Influenza) is the worked example
-this project generalizes. Chapter 7's implementation is assumed — fitting a simulator you cannot
+Chapter 7 worked through, in particular §7.2 (Preprocessing Surveillance Data), §7.3 (What Can Be
+Fit: An Identifiability Discussion), §7.4 (Least-Squares Fitting of $\alpha$) and §7.5 (Initial Conditions and
+the Susceptible-Fraction Question). §7.7 (Case Study: Seasonal Influenza) is the worked example
+this project generalizes. Chapter 6's implementation is assumed — fitting a simulator you cannot
 verify produces confident nonsense.
 
 Substantial programming, including optimisation.
@@ -37,9 +37,9 @@ By the end, the student can:
 
 ## The task
 
-The book's specification, from Chapter 8's exercises:
+The book's specification, from Chapter 7's exercises:
 
-> Fitting an $SIR_I$-type model to a real or synthetic outbreak dataset (suggested options include
+> Fitting an SIR-type model to a real or synthetic outbreak dataset (suggested options include
 > the chapter's seasonal influenza data, COVID-19 weekly incidence, or a synthetic dataset with
 > realistic noise overlay), with full uncertainty quantification and AI-collaborative validation.
 

@@ -93,15 +93,15 @@ for label, qoi in [('R0', qoi_R0), ('Istar', qoi_Istar)]:
 
 # ---- figure ----------------------------------------------------------------
 fig, axes = plt.subplots(1, 2, figsize=(7.5, 3.0), sharey=False)
-titles = [r'$\mathcal{R}_0$', r'$I^*$ (equal-contact)']
+titles = [r'$\mathcal{R}_0$', r'$i^*$ (equal-contact)']
 x = np.arange(k_params)
 w = 0.38
 for ax, label, title in zip(axes, ['R0', 'Istar'], titles):
     S_first, S_total = results[label]
     ax.bar(x - w / 2, np.maximum(S_first, 0.0), w, color='0.25',
-           label=r'$S_i$')
+           label=r'$\mathcal{S}_i$')
     ax.bar(x + w / 2, np.maximum(S_total, 0.0), w, color='0.72',
-           edgecolor='0.25', linewidth=0.6, label=r'$S_{T_i}$')
+           edgecolor='0.25', linewidth=0.6, label=r'$\mathcal{S}_{T_i}$')
     ax.set_xticks(x)
     ax.set_xticklabels(param_tex)
     ax.set_title(title, fontsize=10)

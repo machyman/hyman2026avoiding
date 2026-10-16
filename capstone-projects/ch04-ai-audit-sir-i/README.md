@@ -1,10 +1,10 @@
-# Capstone: Audit an AI's exposition of the SIR_I model
+# Capstone: Audit an AI's exposition of the SIR model
 
 ## At a glance
 
 | | |
 |---|---|
-| Chapter | 4 — The Force from Infection: Infected Viewpoint |
+| Chapter | 3 — The Force from Infection: Infected Viewpoint |
 | Tier | chapter project — the student demonstrates a technique rather than analyzing a disease |
 | Scope | one AI exposition, one audit against the chapter, one audit log, one corrected exposition |
 | Span | 1–2 weeks |
@@ -16,8 +16,8 @@ still being assembled.
 
 ## Prerequisites
 
-Chapter 4 worked through, in particular the susceptible and infected viewpoints and the formal
-equivalence between them. Chapter 3's force-of-infection treatment is assumed. No programming is
+Chapter 3 worked through, in particular the susceptible and infected viewpoints and the formal
+equivalence between them. Chapter 2's force-of-infection treatment is assumed. No programming is
 required.
 
 ## Learning objectives
@@ -35,7 +35,7 @@ By the end a student can:
 
 ## The task
 
-From Chapter 4's exercises:
+From Chapter 3's exercises:
 
 > Prompt an AI system to explain the SIR model, the basic reproductive number R₀, and the
 > operational meaning of the force of infection; audit the response against the chapter's framework,

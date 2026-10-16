@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Chapter | 10 — Sensitivity Analysis |
+| Chapter | 9 — Sensitivity Analysis |
 | Tier | term project — the student defends an intervention conclusion, not merely a ranking |
 | Scope | one sensitivity analysis, one intervention ranking, one uncertainty assessment, one memo |
 | Span | 3–4 weeks |
@@ -15,12 +15,12 @@ audience. The sensitivity analysis is the instrument; the recommendation is the 
 
 ## Prerequisites
 
-Chapter 10 worked through, in particular §10.2 (Local Sensitivity: The Normalized Sensitivity
-Index), §10.6 (Global Sensitivity: Latin Hypercube Sampling and PRCC) and §10.7 (The
-Invasion–Burden Partition: Quantitative Version). §10.5 (Tornado Plots) supplies the presentation
-form, and §10.4 (Correlated Parameters) matters directly: the ranges sampled in step 3 are rarely
+Chapter 9 worked through, in particular §9.2 (Local Sensitivity: The Normalized Sensitivity
+Index), §9.6 (Global Sensitivity: Latin Hypercube Sampling and PRCC) and §9.7 (The
+Invasion–Burden Partition: Quantitative Version). §9.5 (Tornado Plots) supplies the presentation
+form, and §9.4 (Correlated Parameters) matters directly: the ranges sampled in step 3 are rarely
 independent, and treating them as such is the most common way a global analysis goes quietly wrong.
-Chapter 6's invasion–burden distinction is a hard prerequisite, since §10.7 (The Invasion–Burden
+Chapter 5's invasion–burden distinction is a hard prerequisite, since §9.7 (The Invasion–Burden
 Partition: Quantitative Version) is its quantitative version and the recommendation turns on it.
 
 Moderate programming, including sampling.
@@ -38,7 +38,7 @@ By the end, the student can:
 
 ## The task
 
-The book's specification, from Chapter 10's exercises:
+The book's specification, from Chapter 9's exercises:
 
 > Using local and global sensitivity analysis to drive an intervention recommendation for a specific
 > epidemic-modeling problem, with quantified uncertainty in the ranking and a written recommendation
@@ -69,8 +69,8 @@ ranges is a graded criterion precisely because it is the step most often skipped
 
 1. **Parameter elicitation.** Establish ranges, not point values, each with a source and a stated
    distribution. Where evidence is thin, widen the range rather than guessing narrowly — and say so.
-2. **Mathematical analysis.** Compute closed-form local sensitivity indices where §10.3 (Closed-Form
-   Sensitivity Indices for the $SIR_I$ Model) provides them. These are exact and cheap, and they
+2. **Mathematical analysis.** Compute closed-form local sensitivity indices where §9.3 (Closed-Form
+   Sensitivity Indices for the SIR Model) provides them. These are exact and cheap, and they
    give a check on the sampled results later.
 3. **Numerical validation.** Run the global analysis. Confirm convergence in the sample size rather
    than assuming it: re-run at two sample sizes and check the ranking is stable. Compare against the

@@ -1,24 +1,24 @@
-# Capstone: Full two-group $SIR_I$ fitting and intervention recommendation
+# Capstone: Full two-group SIR fitting and intervention recommendation
 
 ## At a glance
 
 | | |
 |---|---|
-| Chapter | 12 — Two-Group Models |
+| Chapter | 11 — Two-Group Models |
 | Tier | term project — the student analyses a stratified outbreak and defends an intervention conclusion |
 | Scope | one two-group model, one fit, one heterogeneity-aware recommendation, one memo |
 | Span | 3–4 weeks |
 | Deliverable | a fitted two-group model with a heterogeneity-aware intervention recommendation |
 
-Among the most demanding projects in the catalog: it combines Chapter 8's fitting with Chapter 12's
+Among the most demanding projects in the catalog: it combines Chapter 7's fitting with Chapter 11's
 structure, and the parameter count roughly doubles while the data rarely does. That tension is the
 point.
 
 ## Prerequisites
 
-Chapter 12 worked through, in particular §12.2 (The Mixing Matrix), §12.3 (The Two-Group $SIR_I$ Dynamics),
-§12.4 (The Basic Reproductive Number via the Next-Generation Matrix) and §12.7 (Herd Immunity in
-Heterogeneous Populations). §12.8 (A Numerical Case Study) is the worked pattern. Chapter 8 is a hard
+Chapter 11 worked through, in particular §11.2 (The Mixing Matrix), §11.3 (The Two-Group SIR Dynamics),
+§11.4 (The Basic Reproductive Number via the Next-Generation Matrix) and §11.7 (Herd Immunity in
+Heterogeneous Populations). §11.8 (A Numerical Case Study) is the worked pattern. Chapter 7 is a hard
 prerequisite: this is a fitting project before it is a heterogeneity project.
 
 Substantial programming.
@@ -37,9 +37,9 @@ By the end, the student can:
 
 ## The task
 
-The book's specification, from Chapter 12's exercises:
+The book's specification, from Chapter 11's exercises:
 
-> Fitting a two-group $SIR_I$ model to an outbreak with observable group-level heterogeneity
+> Fitting a two-group SIR model to an outbreak with observable group-level heterogeneity
 > (suggested options include age-stratified COVID-19, risk-group-stratified HIV, school-age-
 > stratified influenza, or vaccination-stratified measles), and producing an intervention
 > recommendation that accounts for the heterogeneity.
@@ -50,7 +50,7 @@ conclusion earns full marks if it is properly established.
 
 ## Materials
 
-**No chapter-specific code ships in this repository for Chapter 12.** This is stated plainly because
+**No chapter-specific code ships in this repository for Chapter 11.** This is stated plainly because
 the alternative — citing a path that does not resolve — is the defect class that cannot be fixed
 after printing. The general materials below apply, and the project is built on them.
 
@@ -58,7 +58,7 @@ after printing. The general materials below apply, and the project is built on t
 system must reduce to when the groups are made identical — that reduction is the primary
 implementation check and step 3 requires it. `notebooks/ch08/ch8_preprocessing.py` and
 `ch8_influenza_fit.py` supply the fitting workflow, which carries over directly; the identifiability
-probes in `notebooks/ch08/probes/` matter more here than in Chapter 8, because the parameter count is
+probes in `notebooks/ch08/probes/` matter more here than in Chapter 7, because the parameter count is
 higher. `requirements.txt` and `REPRODUCIBILITY.md`.
 
 **Student-supplied.** The two-group implementation, and stratified incidence data. **No

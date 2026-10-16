@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Chapter | 14 — Vector-Borne Diseases |
+| Chapter | 13 — Vector-Borne Diseases |
 | Tier | term project — the student analyses a vector-borne disease and defends an intervention conclusion |
 | Scope | one pathogen, one vector-host model, one fit, one sensitivity-weighted recommendation, one memo |
 | Span | 3–4 weeks |
@@ -16,9 +16,9 @@ the substance of the work.
 
 ## Prerequisites
 
-Chapter 14 worked through, in particular §14.2 (Vector Biology), §14.3 (The Vector-Host $SIR$ Model),
-§14.4 (The Ross-Macdonald Reproductive Number) and §14.5 (Interventions and Their Effect on $\mathcal{R}_0$).
-§14.6 (Case Study: Malaria) is the worked example. Chapter 8 for fitting and Chapter 10 for
+Chapter 13 worked through, in particular §13.2 (Vector Biology), §13.3 (The Vector-Host $SIR$ Model),
+§13.4 (The Ross-Macdonald Reproductive Number) and §13.5 (Interventions and Their Effect on $\mathcal{R}_0$).
+§13.6 (Case Study: Malaria) is the worked example. Chapter 7 for fitting and Chapter 9 for
 sensitivity are both hard prerequisites — the deliverable requires all three.
 
 Substantial programming.
@@ -37,7 +37,7 @@ By the end, the student can:
 
 ## The task
 
-The book's specification, from Chapter 14's exercises:
+The book's specification, from Chapter 13's exercises:
 
 > Implementing a vector-host model for a chosen vector-borne pathogen (suggested options span dengue,
 > malaria, Zika, and West Nile), fitting the model to outbreak data, and producing intervention
@@ -49,7 +49,7 @@ harder; students choosing them should expect wider uncertainty and should not tr
 
 ## Materials
 
-**No chapter-specific code ships in this repository for Chapter 14.** Stated plainly rather than
+**No chapter-specific code ships in this repository for Chapter 13.** Stated plainly rather than
 papered over: citing a path that does not resolve is the defect class that cannot be corrected once
 printed.
 
@@ -77,7 +77,7 @@ one, and discovering how strongly the values depend on setting, is the core of t
    are fitted or sourced conventionally. Vector-side entomological parameters are almost always
    fixed from the literature, and each must record species, temperature and setting. A biting rate
    from a different species in a different climate is not a value, it is a guess with a citation.
-2. **Mathematical analysis.** Derive $\mathcal{R}_0$ following §14.4 (The Ross-Macdonald Reproductive Number) and verify the implementation reproduces
+2. **Mathematical analysis.** Derive $\mathcal{R}_0$ following §13.4 (The Ross-Macdonald Reproductive Number) and verify the implementation reproduces
    it. Establish what the system reduces to as the vector dynamics become fast relative to the host —
    the reduction that connects this chapter to the direct-transmission models, and a check on the
    implementation.
@@ -125,7 +125,7 @@ than a finding.
 
 **Scaling.** Supplying a vetted entomological parameter table removes the parameter-elicitation
 step from the scope, at the cost of the elicitation skill — a reasonable trade in a course where
-Chapter 10 already covers elicitation. Assigning pathogens rather than allowing free choice prevents the whole
+Chapter 9 already covers elicitation. Assigning pathogens rather than allowing free choice prevents the whole
 class choosing dengue.
 
 **Common failure modes.** Entomological parameters transported across species or climate without

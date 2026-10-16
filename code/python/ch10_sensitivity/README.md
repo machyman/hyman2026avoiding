@@ -1,6 +1,7 @@
-# Chapter 10 sensitivity module
+# Chapter 9 sensitivity module
 
-Python implementations for the Chapter 10 sensitivity analysis:
+Python implementations for the Chapter 9 sensitivity analysis (the directory keeps
+the earlier number, which the book prints):
 
 - [`ch10_index_divergence.py`](ch10_index_divergence.py) — normalized
   sensitivity-index divergence of the endemic burden as R0 approaches 1.
