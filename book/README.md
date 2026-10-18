@@ -1,15 +1,14 @@
 # The Book
 
-*Avoiding Pitfalls in Epidemic Modeling: An Introduction to Formulating, Analyzing, and Fitting Models*
+*Foundations and Pitfalls in Epidemic Modeling: An Introduction to Formulating, Analyzing, and Fitting Models*
 — James M. Hyman, Zhuolin Qu, and Ling Xue.
 
 **Status: under review with Springer** (Interdisciplinary Applied Mathematics series).
 
-The book — its PDF and LaTeX source — is **not** included in this repository, and
-will not be until the publisher grants permission to post it. When the book is
-published it will be available from Springer; a link will be added here
-**pending permission from the publisher.**
+With Springer's permission, the current pre-publication draft is posted for comment in
+[`../docs/`](../docs/): the PDF, [`hyman2026avoiding_v2_96_11.pdf`](../docs/hyman2026avoiding_v2_96_11.pdf),
+and the [claim audit ledger](../docs/AUDIT_LEDGER_v2_96_11.md). The draft is not the published book. When
+the book is published it will be available from Springer, and a link will be added here.
 
-> **Standing condition.** No manuscript artifact (PDF, LaTeX source, or page
-> proofs) may be added to this repository until Springer grants explicit
-> permission to post it. This condition travels with the repository.
+Comments and corrections on the draft are welcome through the repository's
+[issue tracker](https://github.com/machyman/hyman2026avoiding/issues/new/choose).

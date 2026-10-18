@@ -1,6 +1,6 @@
-title: Avoiding Pitfalls in Epidemic Modeling
+title: Foundations and Pitfalls in Epidemic Modeling
 description: >-
-  Companion code and materials for the book "Avoiding Pitfalls in Epidemic
+  Companion code and materials for the book "Foundations and Pitfalls in Epidemic
   Modeling: An Introduction to Formulating, Analyzing, and Fitting Models"
   (Hyman, Qu, Xue; Springer, Interdisciplinary Applied Mathematics — under review).
 url: https://machyman.github.io
@@ -28,6 +28,8 @@ aux_links_new_tab: true
 nav_external_links:
   - title: "Code (notebooks)"
     url: https://github.com/machyman/hyman2026avoiding/tree/main/notebooks
+  - title: "Draft and audit ledger"
+    url: https://github.com/machyman/hyman2026avoiding/tree/main/docs
   - title: "Data"
     url: https://github.com/machyman/hyman2026avoiding/tree/main/data
   - title: "Labs (in preparation)"

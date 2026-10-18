@@ -3,6 +3,33 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-10-18]
+
+### Added
+- `docs/`: the book's pre-publication draft, `docs/hyman2026avoiding_v2_96_11.pdf` (535 pages), posted for
+  comment with Springer's permission, and `docs/AUDIT_LEDGER_v2_96_11.md`, the claim audit ledger: each correction
+  to a printed claim, the check behind it, and the draft version in which it landed. Every file in `docs/` carries
+  the draft version in its name, so feedback can name the version it read. A README describes them.
+- The five generators that were not here: `notebooks/ch04/ch4_alpha_vs_lambda.py`,
+  `notebooks/ch08/ch8_weighting.py`, `notebooks/ch11/ch11_same_R0.py`, `notebooks/ch12/ch12_herd_boundary.py`
+  and `notebooks/ch16/ch16_generation_interval.py`, with READMEs for the three new directories. The repository
+  now carries all 20 of the book's figure generators.
+
+### Changed
+- The book's new title, *Foundations and Pitfalls in Epidemic Modeling: An Introduction to Formulating,
+  Analyzing, and Fitting Models*, in `README.md`, `index.md`, `book/README.md`, `CITATION.cff` and the site
+  configuration. The repository name and citation key stay `hyman2026avoiding`.
+- Version stamp: tracks book v2_96_11 (previously v2_87_1).
+- Three generators come to the book's current versions: `notebooks/ch09/ch9_figures.py` (v2.6: the profile
+  likelihood figure is computed from profile fits), `notebooks/ch10/ch10_figures.py` (v1.4: endemic prevalence
+  uses the general-contact closed form; schematic labels) and `code/python/ch10_sensitivity/ch10_sobol_panel.py`
+  (the same general-contact form).
+- `REPRODUCIBILITY.md`: all 20 generators and 32 figures, the Python versions that reproduce the figures byte
+  for byte, and where the three new scripts write. Checked before this update: run from this layout, the 20
+  scripts reproduce the book's 32 figures byte for byte.
+- `notebooks/README.md` and the per-chapter READMEs for `ch08/` and `ch11/` list every script, as links;
+  `notebooks/ch17/README.md` names the model SEIAR; `index.md` names the model SIR.
+
 ## [2026-10-15]
 
 ### Added

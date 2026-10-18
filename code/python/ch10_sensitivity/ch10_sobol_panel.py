@@ -2,13 +2,16 @@
 """ch10_sobol_panel.py -- Ch 10 figure: compact Sobol panel (S_i vs S_Ti) for the
 closed-form QOIs, hand-rolled Saltelli Monte Carlo (no new dependency).
 
-QOIs (closed forms; equal-contact-rate case for I*, N* constant by construction):
+QOIs (closed forms, N* constant by construction):
     R0(p)    = c_I * beta / (gR + nu),          gR = 1/tau_R, nu = 1/tau_m
-    Istar(p) = max(0, (nu/(gR+nu)) * (1 - 1/R0))   # long-run prevalence; 0 when
-                                                   # the endemic equilibrium does
-                                                   # not exist (R0 <= 1)
-c_S and c_R enter neither closed form, so their indices are structural zeros --
-the variance-based analog of the dummy-parameter check of the PRCC section.
+    Istar(p) = general-contact endemic prevalence (eq. 5.21):
+               c_S nu (R0-1) / [c_S (gR+nu)(R0-1) + c_I nu + c_R gR], 0 when R0 <= 1
+c_S and c_R do not enter R0, so their R0 indices are structural zeros -- the
+variance-based analog of the dummy-parameter check of the PRCC section.
+
+Revised 2026-10-17 (Session 223, F-221.1, RG-222.1 (ii)): Istar is the general form
+of the model the book integrates, not the equal-contact form, in which c_S and c_R had
+structural zeros. The design, seed and sample are unchanged.
 
 Design: 6 parameters, independent uniform on [p/2, 2p] around the centralized
 baseline (sir_i_model.BASE), matching the LHS-PRCC design of the same section.
@@ -58,10 +61,12 @@ def qoi_R0(P):
 
 
 def qoi_Istar(P):
-    """Equal-contact endemic prevalence I*/N; 0 where R0 <= 1."""
+    """General-contact endemic prevalence I*/N (eq. 5.21); 0 where R0 <= 1."""
     gR, nu = 1.0 / P[:, 4], 1.0 / P[:, 5]
-    R0 = P[:, 1] * P[:, 3] / (gR + nu)
-    return np.where(R0 > 1.0, (nu / (gR + nu)) * (1.0 - 1.0 / R0), 0.0)
+    cS, cI, cR = P[:, 0], P[:, 1], P[:, 2]
+    R0 = cI * P[:, 3] / (gR + nu)
+    I = cS * nu * (R0 - 1.0) / (cS * (gR + nu) * (R0 - 1.0) + cI * nu + cR * gR)
+    return np.where(R0 > 1.0, I, 0.0)
 
 
 def sobol_indices(qoi):
@@ -93,7 +98,7 @@ for label, qoi in [('R0', qoi_R0), ('Istar', qoi_Istar)]:
 
 # ---- figure ----------------------------------------------------------------
 fig, axes = plt.subplots(1, 2, figsize=(7.5, 3.0), sharey=False)
-titles = [r'$\mathcal{R}_0$', r'$i^*$ (equal-contact)']
+titles = [r'$\mathcal{R}_0$', r'$i^*$']
 x = np.arange(k_params)
 w = 0.38
 for ax, label, title in zip(axes, ['R0', 'Istar'], titles):

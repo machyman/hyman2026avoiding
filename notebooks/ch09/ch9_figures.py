@@ -9,7 +9,8 @@ Reproduces (written to figs/):
                                 the through-peak fits at 10k, 20k and 40k against the reported cases
   ch9_bootstrap_R0.pdf       -- COMPUTED (v2.0): residual bootstrap of the plateau fit of alpha-hat(t_k) = J/I,
                                 with and without the literature uncertainty in tau_R; delta-method bracket
-  ch9_profile_likelihood.pdf -- profile deviance for F0: unpenalized vs penalized (schematic; unchanged from v1.0)
+  ch9_profile_likelihood.pdf -- COMPUTED (v2.6): profile deviance in the seed i0 = I0/N^c on days 0-20 of the
+                                series; left alpha and tau_R free, right with the Table 8.1 penalty on tau_R
   ch9_residuals.pdf          -- COMPUTED (v2.0): standardized residuals of a single-phase Poisson fit to the daily
                                 series, their ACF, and weekly residuals after the two-phase fit with a real
                                 Ljung-Box p-value
@@ -41,6 +42,12 @@ Revised: 2026-10-11   Version 2.4 (F-168.1, RG-168.1a: the N* figure is computed
 Revised: 2026-10-11   Version 2.5 (RG-174.1d: legibility only. The ascertainment panels' legends move to the
                       upper left, clear of the peaks; the N* right panel draws 40k and 10k in colours the left
                       panel does not use. No data, fit or random stream changes.)
+Revised: 2026-10-17   Version 2.6 (RG-219.3 (i), F-218.4: the profile figure is computed. v2.5 drew a formula plus
+                      noise on the left and the prior alone on the right. Now each point is a profile fit to the first
+                      21 days of the series: the deviance minimized over alpha and tau_R (left) or over alpha and
+                      tau_R with the Table 8.1 penalty (tau_R - 5)^2/0.7^2 (right), at each fixed seed I0. tau_R is
+                      bounded to [0.05, 200] days and the bound is reported. The v1.0 rng(9) draw this figure made
+                      is still taken, unused, so the later figures keep their streams.)
 """
 import numpy as np, matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
@@ -352,26 +359,93 @@ fig.tight_layout()
 fig.savefig('figs/ch9_bootstrap_R0.pdf'); plt.close(fig); print('bootstrap ok')
 
 # =========================================================================
-# Fig 3: profile likelihood for F0 (two panels)
+# Fig 3: profile deviance in the seed (two panels), COMPUTED (v2.6; RG-219.3 (i), F-218.4)
+# The first 21 days of the daily series (Stage 1, before depletion). Model: the chapter's SIR with the infectious
+# period tau_R free, seeded with I0 infectious people, Poisson deviance. At each fixed I0 the deviance is minimized
+# over (alpha, tau_R), log parameters, Nelder-Mead from four starts; tau_R is bounded to [0.05, 200] days. Right
+# panel: the same with the Table 8.1 penalty on tau_R, (tau_R - 5)^2 / 0.7^2 (sigma = CV 0.14 x 5 days, lambda = 1).
+# Each curve is shown relative to its own minimum. The design is the guide's (solutions/code/ch08_solutions.py).
 # =========================================================================
+_ = rng.normal(0, 0.02, 300)            # the v1.0 draw of this figure, kept so rng(9)'s later draws do not move
+N_PROF, TAU0, SIG_TAU, TAU_LO, TAU_HI = 21, 5.0, 0.7, 0.05, 200.0
+
+
+def daily_g(alpha, tau, I0, n):
+    """Expected new cases per day over days 0..n-1: the SIR above with infectious period tau, seeded with I0."""
+    g = 1 / tau
+    def rhs(t, y):
+        S, I, C = y
+        return [-alpha * S * I, alpha * S * I - g * I, alpha * S * I]
+    s = solve_ivp(rhs, [0, n], [1 - I0 / NC, I0 / NC, 0.0], t_eval=np.arange(n + 1), rtol=1e-10, atol=1e-13,
+                  max_step=0.5)
+    return NC * np.diff(s.y[2])
+
+
+def deviance(mu, y):
+    mu = np.maximum(mu, 1e-12)
+    return float(2 * np.sum(np.where(y > 0, y * np.log(np.maximum(y, 1e-12) / mu), 0.0) - (y - mu)))
+
+
+def profile_point(I0, lam_tau, n=N_PROF):
+    """Minimum over (alpha, tau_R) of deviance + lam_tau (tau_R - 5)^2 / 0.7^2 at a fixed seed I0."""
+    y = J_obs[:n]
+    def obj(p):
+        a, tau = np.exp(p)
+        if tau > TAU_HI or tau < TAU_LO:
+            return 1e30
+        return deviance(daily_g(a, tau, I0, n), y) + lam_tau * (tau - TAU0) ** 2 / SIG_TAU ** 2
+    best = None
+    for s0 in [(0.27, 5.0), (0.5, 2.0), (0.2, 10.0), (1.0, 1.0)]:
+        r = minimize(obj, np.log(s0), method='Nelder-Mead', options=dict(xatol=1e-8, fatol=1e-8, maxiter=8000,
+                                                                      maxfev=8000))
+        if best is None or r.fun < best.fun:
+            best = r
+    return np.exp(best.x[1]), best.fun
+
+
+thr = chi2.ppf(0.95, 1)
+I0_grid = np.logspace(-1, 3, 49)                       # 0.1 to 1,000 index cases, twelve points per decade
+prof, taus = {}, {}
+for lam in (0.0, 1.0):
+    pts = [profile_point(I0, lam) for I0 in I0_grid]
+    taus[lam] = np.array([p[0] for p in pts]); f = np.array([p[1] for p in pts]); prof[lam] = f - f.min()
+
+
+def crossings(I0s, d):
+    """Interpolated seeds (log scale) where the profile crosses the 95% threshold, and the grid points inside it."""
+    inside = I0s[d < thr]
+    lo = hi = None
+    k = int(np.argmin(d))
+    for j in range(k, 0, -1):
+        if d[j - 1] >= thr > d[j]:
+            lo = 10 ** np.interp(thr, [d[j], d[j - 1]], np.log10([I0s[j], I0s[j - 1]])); break
+    for j in range(k, len(d) - 1):
+        if d[j + 1] >= thr > d[j]:
+            hi = 10 ** np.interp(thr, [d[j], d[j + 1]], np.log10([I0s[j], I0s[j + 1]])); break
+    return inside, lo, hi
+
+
+for lam, name in ((0.0, 'tau_R free'), (1.0, 'tau_R penalized')):
+    inside, lo, hi = crossings(I0_grid, prof[lam])
+    print(f'profile ({name}): grid seeds inside {thr:.2f}: {inside.min():.3g} to {inside.max():.3g} cases;'
+          f' crossings {lo if lo is None else round(lo, 2)} to {hi if hi is None else round(hi, 2)};'
+          f' argmin {I0_grid[int(np.argmin(prof[lam]))]:.3g}; tau_R at the grid ends {taus[lam][0]:.3g},'
+          f' {taus[lam][-1]:.3g} d; points at a tau_R bound: {int(np.sum((taus[lam] < 0.0501) | (taus[lam] > 199.9)))}')
+    print('  ' + ', '.join(f'{x:.3g}:{d:.2f}(tau {t:.3g})' for x, d, t in zip(I0_grid, prof[lam], taus[lam])))
+
 fig, ax = plt.subplots(1, 2, figsize=(7.4, 3.1), sharey=True)
-F0 = np.logspace(-6, -3, 300)
-F0bar, sigF = 1 / NC, 2 / NC
-thr = 3.84  # chi^2_1 95%
-dev_flat = 0.15 * (np.log10(F0) - (-4.5)) ** 2 / 6 + rng.normal(0, 0.02, F0.size)  # nearly flat
-dev_flat = np.clip(dev_flat, 0, None)
-dev_pen = 0.5 * ((F0 - F0bar) / sigF) ** 2
-for a, dev, ttl in [(ax[0], dev_flat, 'Unpenalized'), (ax[1], dev_pen, 'Penalized')]:
-    a.semilogx(F0, dev, color=B, lw=2.2)
+i0 = I0_grid / NC
+for a, lam, ttl in [(ax[0], 0.0, r'$\alpha$ and $\tau_R$ free'), (ax[1], 1.0, r'penalty on $\tau_R$')]:
+    a.semilogx(i0, prof[lam], color=B, lw=2.2)
     a.axhline(thr, color=Rd, ls='--', lw=1)
-    a.text(1.4e-6, thr + 0.15, r'95\% threshold', fontsize=7.5, color=Rd)
+    a.text(i0[0] * 1.3, thr + 0.15, r'95\% threshold', fontsize=7.5, color=Rd)
+    a.axvline(5 / NC, color='0.5', ls=':', lw=1)
     a.set_xlabel(r'$i_0$')
     a.set_title(ttl, fontsize=10)
     despine(a)
+ax[1].text(5 / NC * 1.5, 5.4, r'$5/N^{\mathrm{c}}$ (true seed)', fontsize=7.5, color='0.4')
 ax[0].set_ylabel(r'profile deviance')
 ax[0].set_ylim(-0.3, 6.5)
-ax[1].axvline(F0bar, color='0.5', ls=':', lw=1)
-ax[1].text(F0bar * 1.15, 5.4, r'$\bar{i}_0=1/N^{\mathrm{c}}$', fontsize=7.5, color='0.4')
 fig.tight_layout()
 fig.savefig('figs/ch9_profile_likelihood.pdf'); plt.close(fig); print('profile ok')
 

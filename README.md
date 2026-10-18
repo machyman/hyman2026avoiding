@@ -1,20 +1,21 @@
-# Avoiding Pitfalls in Epidemic Modeling — Companion Repository
+# Foundations and Pitfalls in Epidemic Modeling — Companion Repository
 
-Companion code and materials for the book *Avoiding Pitfalls in Epidemic
+Companion code and materials for the book *Foundations and Pitfalls in Epidemic
 Modeling: An Introduction to Formulating, Analyzing, and Fitting Models*, by
 **James M. Hyman**, **Zhuolin Qu**, and **Ling Xue** (Springer,
 Interdisciplinary Applied Mathematics series — under review).
 
 **Rendered companion site:** <https://machyman.github.io/hyman2026avoiding>
 
-**Tracks book v2_87_1.** This line records the manuscript version this repository
+**Tracks book v2_96_11.** This line records the manuscript version this repository
 was last synchronised against, so drift between the book and the code is visible
 rather than silent. If it is many versions behind the current draft, the code here
 may not match the book's printed numbers.
 
-> **The book is under review with Springer.** The manuscript is not hosted
-> here; it will be available from the publisher, with a link added **pending
-> permission**. See [`book/`](book/).
+> **The book is under review with Springer.** With Springer's permission, the
+> current pre-publication draft, v2_96_11, is posted here for comment in [`docs/`](docs/),
+> together with the [claim audit ledger](docs/AUDIT_LEDGER_v2_96_11.md). The published book
+> will be available from Springer. See [`book/`](book/).
 
 ## What's here
 
@@ -23,13 +24,14 @@ numerical results, organized to match the book's Appendix B:
 
 | Path | Contents |
 |---|---|
-| [`notebooks/`](notebooks/) | Per-chapter scripts that reproduce each chapter's figures and computations (`ch03/`, `ch06/`–`ch11/`, `ch17/`) |
+| [`notebooks/`](notebooks/) | Per-chapter scripts that reproduce each chapter's figures and computations (`ch03/`, `ch04/`, `ch06/`–`ch12/`, `ch16/`, `ch17/`) |
 | [`src/`](src/) | Shared Python modules — the `sir_i_model.py` integrator used across chapters |
 | [`code/`](code/python/ch10_sensitivity/) | Standalone modules the book cites by path — currently the Chapter 9 sensitivity module |
 | [`capstone-projects/`](capstone-projects/) | The book's chapter capstone projects, one directory per project |
 | [`data/`](data/) | Provenance and pointers for the empirical case-study datasets |
 | [`labs/`](labs/) | Guided lab notebooks *(in preparation)* |
-| [`book/`](book/) | Book availability and citation *(manuscript not hosted — under review)* |
+| [`docs/`](docs/) | The pre-publication draft of the book (PDF) and the claim audit ledger |
+| [`book/`](book/) | Book availability and citation *(under review)* |
 
 Fuller narrated teaching notebooks and the lab set are being finalized alongside
 the book.
@@ -61,7 +63,7 @@ Please cite the book:
 
 ```bibtex
 @book{hyman2026avoiding,
-  title     = {Avoiding Pitfalls in Epidemic Modeling: An Introduction to
+  title     = {Foundations and Pitfalls in Epidemic Modeling: An Introduction to
                Formulating, Analyzing, and Fitting Models},
   author    = {Hyman, James M. and Qu, Zhuolin and Xue, Ling},
   year      = {2026},

@@ -7,13 +7,23 @@ The sections below describe the book's build tree, where the generators sit in `
 repository root with the model on the path:
 
 ```bash
-export SOURCE_DATE_EPOCH=1750000000 MPLBACKEND=Agg PYTHONPATH=src
-mkdir -p figs
+export SOURCE_DATE_EPOCH=1750000000 MPLBACKEND=pdf PYTHONPATH=src
+mkdir -p figs notebooks/figs
 python3 notebooks/ch07/ch7_figures.py
 ```
 
-As of book v2_87_1 the repository carries 15 of the 17 generators. `ch4_alpha_vs_lambda` and `ch8_weighting`
-are not here yet. The registry check named below is the book's tool and is not part of this repository.
+As of book v2_96_11 the repository carries all 20 generators. Three of them, `ch11_same_R0`,
+`ch12_herd_boundary` and `ch16_generation_interval`, save to `../figs/` beside their own folder, which here is
+`notebooks/figs/`; the others write to `figs/` at the repository root. The registry check named below is the
+book's tool and is not part of this repository.
+
+Checked at book v2_96_11: run this way under the Python pin below, the 20 scripts reproduce the book's 32
+figures byte for byte.
+
+**The Python pin.** `requirements.txt` gives minimum versions, enough to run the code. Byte-identical figures
+need the versions the book's figures were made with: matplotlib 3.10.8, numpy 2.4.4 and scipy 1.17.1, with
+`MPLBACKEND=pdf`. Later versions can move labels and vertices by about a point without changing any plotted
+value. One figure needs its own epoch: `ch3_exp_vs_linear_beta` reproduces at `SOURCE_DATE_EPOCH=1787747549`.
 
 All figure PDFs in `figs/` are registered in `hyman2026avoiding_STATUS.yaml` with SHA-256 hashes of
 both the generator script and its outputs. For those hashes to be meaningful, regeneration must be
@@ -50,39 +60,39 @@ produce different bytes. Pin it:
 
 ```bash
 export SOURCE_DATE_EPOCH=1750000000
-MPLBACKEND=Agg PYTHONPATH=figs_src python3 figs_src/<generator>.py
+MPLBACKEND=pdf PYTHONPATH=figs_src python3 figs_src/<generator>.py
 ```
 
 With `SOURCE_DATE_EPOCH` set, output is byte-identical across runs and the registry check is a
 genuine reproducibility test rather than a check that nobody has rerun anything.
 
-`PYTHONPATH=figs_src` is required by the generators that import the shared model
-(`ch6_phase_portrait`, `ch7_figures`, `ch10_figures`, `ch11_multistage_ic`).
+`PYTHONPATH=figs_src` is required by the generators that import the shared model, which is every generator
+except `ch12_herd_boundary`, `ch16_generation_interval` and `ch17_figures`.
 
-## Regenerate everything — all 17 generators, all 29 figures (book v2_87_1)
+## Regenerate everything — all 20 generators, all 32 figures (book v2_96_11)
 
 The earlier version of this file listed seven generators covering 17 of the 28 figures, so
 "regenerate everything" never did. The complete set:
 
 ```bash
 export SOURCE_DATE_EPOCH=1750000000
-export MPLBACKEND=Agg
+export MPLBACKEND=pdf
 export PYTHONPATH=figs_src
 for g in ch3_exp_vs_linear_beta ch4_alpha_vs_lambda ch6_bifurcation ch6_invasion_burden \
          ch6_phase_portrait ch7_figures ch7_reporting_lag ch8_central_comparison \
          ch8_influenza_fit ch8_preprocessing ch8_weighting ch9_figures \
-         ch10_figures ch10_index_divergence ch10_sobol_panel ch11_multistage_ic ch17_figures; do
+         ch10_figures ch10_index_divergence ch10_sobol_panel ch11_multistage_ic ch11_same_R0 \
+         ch12_herd_boundary ch16_generation_interval ch17_figures; do
   python3 "figs_src/$g.py"
 done
 ```
 
 Run from the directory containing `figs/`; the generators write relative paths. Output counts, which
-sum to 29: `ch7_figures` writes 4, `ch9_figures` 6, `ch10_figures` 3, `ch8_preprocessing` 3, and the
-remaining thirteen write one each.
+sum to 32: `ch7_figures` writes 4, `ch9_figures` 6, `ch10_figures` 3, `ch8_preprocessing` 3, and the
+remaining sixteen write one each.
 
-The other seven files in `figs_src/` are not figure generators. `sir_i_model.py` is the shared model;
-`ch8_likelihood_bridge_check.py` and the five `ch8_route_b_*.py` scripts are diagnostics that print
-results and write nothing.
+The other file in `figs_src/`, `sir_i_model.py`, is the shared model. In this repository the five
+`notebooks/ch08/probes/ch8_route_b_*.py` scripts are diagnostics that print results and write nothing.
 
 ## Seeding
 
@@ -97,6 +107,6 @@ Byte-compare against the registry, not by eye:
 python3 tools/registry_check.py .
 ```
 
-At book v2_87_1 a clean run reports `49/49 (0 missing, 0 mismatched)`. If figures differ only in `/CreationDate`,
+At book v2_96_11 a clean run reports `55/55 (0 missing, 0 mismatched)`. If figures differ only in `/CreationDate`,
 `SOURCE_DATE_EPOCH` was not exported. If they differ in body content, check that the LaTeX packages
 above are installed — a missing `dvipng` or `cm-super` changes glyph rendering without any error.
