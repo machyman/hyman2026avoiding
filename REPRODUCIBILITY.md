@@ -12,12 +12,12 @@ mkdir -p figs notebooks/figs
 python3 notebooks/ch07/ch7_figures.py
 ```
 
-As of book v2_96_11 the repository carries all 20 generators. Three of them, `ch11_same_R0`,
+As of book v2_104_1 the repository carries all 20 generators. Three of them, `ch11_same_R0`,
 `ch12_herd_boundary` and `ch16_generation_interval`, save to `../figs/` beside their own folder, which here is
 `notebooks/figs/`; the others write to `figs/` at the repository root. The registry check named below is the
 book's tool and is not part of this repository.
 
-Checked at book v2_96_11: run this way under the Python pin below, the 20 scripts reproduce the book's 32
+Checked at book v2_104_1 (2026-10-23): run this way under the Python pin below, the 20 scripts reproduce the book's 32
 figures byte for byte.
 
 **The Python pin.** `requirements.txt` gives minimum versions, enough to run the code. Byte-identical figures
@@ -69,7 +69,7 @@ genuine reproducibility test rather than a check that nobody has rerun anything.
 `PYTHONPATH=figs_src` is required by the generators that import the shared model, which is every generator
 except `ch12_herd_boundary`, `ch16_generation_interval` and `ch17_figures`.
 
-## Regenerate everything — all 20 generators, all 32 figures (book v2_96_11)
+## Regenerate everything — all 20 generators, all 32 figures (book v2_104_1)
 
 The earlier version of this file listed seven generators covering 17 of the 28 figures, so
 "regenerate everything" never did. The complete set:
@@ -107,6 +107,6 @@ Byte-compare against the registry, not by eye:
 python3 tools/registry_check.py .
 ```
 
-At book v2_96_11 a clean run reports `55/55 (0 missing, 0 mismatched)`. If figures differ only in `/CreationDate`,
+At book v2_104_1 a clean run reports `57/57 (0 missing, 0 mismatched)`. If figures differ only in `/CreationDate`,
 `SOURCE_DATE_EPOCH` was not exported. If they differ in body content, check that the LaTeX packages
 above are installed — a missing `dvipng` or `cm-super` changes glyph rendering without any error.

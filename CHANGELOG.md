@@ -3,6 +3,24 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-10-23]
+
+### Added
+- `docs/hyman2026avoiding_v2_104_1.pdf` (559 pages), the current pre-publication draft, beside the v2_96_11 draft.
+  Every chapter now ends with a Further Reading section that guides readers to the works best suited to going
+  further.
+- `docs/AUDIT_LEDGER_v2_104_1.md`, the claim audit ledger as of v2_104_1. It adds the corrections made since v2_96_11,
+  among them a check of every citation in the book against what the cited work says. The v2_96_11 ledger stays.
+- In the draft, the HIV chapter gains an account of the first models of the epidemic, among them the
+  back-calculation of HIV infections from AIDS cases, set beside the estimates of the time. A new pitfall, "Fitting
+  versus Explaining the Data", and a section on model discrepancy in the chapter on fitting in practice show that a
+  close fit, and narrow bands from a sensitivity analysis of the fitted model, do not by themselves justify a forecast.
+
+### Changed
+- Version stamp: tracks book v2_104_1 (previously v2_96_11), in `README.md`, `index.md`, `book/README.md`,
+  `docs/README.md` and `REPRODUCIBILITY.md`. No code changed: run from this layout, the 20 scripts still reproduce the
+  book's 32 figures byte for byte.
+
 ## [2026-10-18]
 
 ### Added
