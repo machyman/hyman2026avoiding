@@ -3,14 +3,31 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-10-23, later]
+
+### Added
+- `docs/hyman2026avoiding_v2_108_2.pdf` (559 pages), the current pre-publication draft. It replaces the v2_104_1
+  draft, which is removed. The application chapters (vector-borne disease, dengue, COVID-19, HIV and the PDE chapter)
+  now write new infections per infectious source, as the rest of the book does; every sensitivity in the case
+  studies is taken with respect to a mean duration; and every exercise and Further Reading task was checked against
+  the chapter text. Several chapter epigraphs are reworded to be plainer.
+- `docs/AUDIT_LEDGER_v2_108_2.md`, the claim audit ledger as of v2_108_2. It keeps every row of the v2_104_1 ledger,
+  which is removed, and adds the corrections since.
+
+### Changed
+- Version stamp: tracks book v2_108_2 (previously v2_104_1), in `README.md`, `index.md`, `book/README.md`,
+  `docs/README.md` and `REPRODUCIBILITY.md`. The figures and their generators are unchanged; the 20 generators were
+  re-run from this repository and reproduce the book's 32 figures byte for byte.
+
 ## [2026-10-23]
 
 ### Added
-- `docs/hyman2026avoiding_v2_104_1.pdf` (559 pages), the current pre-publication draft, beside the v2_96_11 draft.
+- `docs/hyman2026avoiding_v2_104_1.pdf` (559 pages), the current pre-publication draft. It replaces the v2_96_11 draft, which is removed.
   Every chapter now ends with a Further Reading section that guides readers to the works best suited to going
   further.
 - `docs/AUDIT_LEDGER_v2_104_1.md`, the claim audit ledger as of v2_104_1. It adds the corrections made since v2_96_11,
-  among them a check of every citation in the book against what the cited work says. The v2_96_11 ledger stays.
+  among them a check of every citation in the book against what the cited work says. It keeps every row of the
+  v2_96_11 ledger, which is removed.
 - In the draft, the HIV chapter gains an account of the first models of the epidemic, among them the
   back-calculation of HIV infections from AIDS cases, set beside the estimates of the time. A new pitfall, "Fitting
   versus Explaining the Data", and a section on model discrepancy in the chapter on fitting in practice show that a

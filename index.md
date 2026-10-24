@@ -16,9 +16,9 @@ the book's figures and numerical results, together with datasets and guided labs
 as they are finalized.
 
 > **The book is under review with Springer.** With Springer's permission, the
-> [current pre-publication draft (v2_104_1)](https://github.com/machyman/hyman2026avoiding/blob/main/docs/hyman2026avoiding_v2_104_1.pdf)
+> [current pre-publication draft (v2_108_2)](https://github.com/machyman/hyman2026avoiding/blob/main/docs/hyman2026avoiding_v2_108_2.pdf)
 > is posted for comment, with the
-> [claim audit ledger as of v2_104_1](https://github.com/machyman/hyman2026avoiding/blob/main/docs/AUDIT_LEDGER_v2_104_1.md).
+> [claim audit ledger as of v2_108_2](https://github.com/machyman/hyman2026avoiding/blob/main/docs/AUDIT_LEDGER_v2_108_2.md).
 > The published book will be available from Springer.
 
 ## What the book is about

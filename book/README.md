@@ -6,8 +6,8 @@
 **Status: under review with Springer** (Interdisciplinary Applied Mathematics series).
 
 With Springer's permission, the current pre-publication draft is posted for comment in
-[`../docs/`](../docs/): the PDF, [`hyman2026avoiding_v2_104_1.pdf`](../docs/hyman2026avoiding_v2_104_1.pdf),
-and the [claim audit ledger](../docs/AUDIT_LEDGER_v2_104_1.md). Earlier drafts stay beside it. The draft is not the published book. When
+[`../docs/`](../docs/): the PDF, [`hyman2026avoiding_v2_108_2.pdf`](../docs/hyman2026avoiding_v2_108_2.pdf),
+and the [claim audit ledger](../docs/AUDIT_LEDGER_v2_108_2.md). The draft is not the published book. When
 the book is published it will be available from Springer, and a link will be added here.
 
 Comments and corrections on the draft are welcome through the repository's
