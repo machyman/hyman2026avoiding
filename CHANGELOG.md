@@ -3,6 +3,12 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-10-24]
+
+### Changed
+- `index.md`: the sections "What the book is about" and "Who it's for" rewritten to say what the book teaches, what
+  it covers, and whom it is written for, as the book's Preface states.
+
 ## [2026-10-23, later]
 
 ### Added

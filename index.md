@@ -23,22 +23,37 @@ as they are finalized.
 
 ## What the book is about
 
-Even simple epidemic models can mislead when basic considerations are
-overlooked. The book works through a catalogue of such pitfalls — in
-formulating, analyzing, and fitting compartmental models, using the SIR model
-as a running example — and shows how to avoid them. A recurring theme is that
-quantities like the basic reproductive number should be *derived* from a model's
-structure rather than assumed; for the SIR model,
+This book lays a solid foundation for building mathematical models of infectious disease spread. It describes the
+basic building blocks of susceptible-infected-recovered (SIR) transmission models: how each term is derived, what it
+assumes, and how the model's predictions follow from its structure. Along the way it shows how to avoid the mistakes
+most often made when simple models are fitted to data or extended to more complex settings. These pitfalls are rarely
+exotic. Two teams can fit the same model to the same outbreak data and report reproductive numbers that differ by more
+than a factor of three, because of a single assumption each made before fitting began. The book collects 28 such
+pitfalls, explains where each one arises, and shows how to avoid it.
 
-$$\mathcal{R}_0 = \frac{c_I\,\beta}{\gamma_R + \nu_m},$$
+With that foundation in place, the book shows how to fit models to outbreak data, quantify the uncertainty in the
+results, and find which parameters matter most. It then extends the model to the most common applications:
 
-and the "infected-viewpoint" estimator $\hat\alpha = J/I$ that the book develops
-is structurally immune to uncertainty in the susceptible population size.
+- latent periods, waning immunity, quarantine, disease-induced deaths and asymptomatic infection;
+- populations with groups that mix unevenly;
+- sexually transmitted infections, such as gonorrhea and HIV;
+- vector-borne diseases, such as malaria;
+- transmission from mother to child;
+- age structure and infectiousness that changes over the course of an infection.
+
+Three case studies, COVID-19, dengue and HIV, bring these tools together on real diseases, and a final chapter draws
+the lessons they share.
+
+The book is written for readers who work with AI assistants. Its exercises teach them to catch the fluent, confident
+errors these tools make on exactly the questions the pitfalls concern. All 276 exercises are answered in an
+instructor's guide, available to instructors on request; every chapter ends with a guide to further reading; and the
+code behind every computed figure is in this repository, so each one can be regenerated.
 
 ## Who it's for
 
-Graduate students and researchers learning compartmental modeling, and
-instructors teaching from the book.
+Upper-level undergraduates and beginning graduate students in applied mathematics, quantitative public health and
+related fields, and the instructors who teach them. The book assumes a first course in ordinary differential
+equations, linear algebra and calculus-based probability and statistics, but no prior exposure to epidemic modeling.
 
 ## Navigating the materials
 
