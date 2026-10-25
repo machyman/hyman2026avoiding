@@ -16,44 +16,50 @@ the book's figures and numerical results, together with datasets and guided labs
 as they are finalized.
 
 > **The book is under review with Springer.** With Springer's permission, the
-> [current pre-publication draft (v2_108_2)](https://github.com/machyman/hyman2026avoiding/blob/main/docs/hyman2026avoiding_v2_108_2.pdf)
+> [current pre-publication draft (v2_110_2)](https://github.com/machyman/hyman2026avoiding/blob/main/docs/hyman2026avoiding_v2_110_2.pdf)
 > is posted for comment, with the
-> [claim audit ledger as of v2_108_2](https://github.com/machyman/hyman2026avoiding/blob/main/docs/AUDIT_LEDGER_v2_108_2.md).
+> [claim audit ledger as of v2_110_2](https://github.com/machyman/hyman2026avoiding/blob/main/docs/AUDIT_LEDGER_v2_110_2.md).
 > The published book will be available from Springer.
 
 ## What the book is about
 
-This book lays a solid foundation for building mathematical models of infectious disease spread. It describes the
-basic building blocks of susceptible-infected-recovered (SIR) transmission models: how each term is derived, what it
-assumes, and how the model's predictions follow from its structure. Along the way it shows how to avoid the mistakes
-most often made when simple models are fitted to data or extended to more complex settings. These pitfalls are rarely
-exotic. Two teams can fit the same model to the same outbreak data and report reproductive numbers that differ by more
-than a factor of three, because of a single assumption each made before fitting began. The book collects 28 such
-pitfalls, explains where each one arises, and shows how to avoid it.
+This book lays a foundation for building mathematical models of how infectious diseases spread. It starts from the
+rate at which new infections occur and builds the susceptible-infected-recovered (SIR) model one term at a time,
+asking where each term comes from, what it assumes, and what the model's behavior owes to it. A reader who finishes
+the book should be able to formulate a model for a new disease, analyze it, fit it to data, and judge how far its
+conclusions can be trusted.
 
-With that foundation in place, the book shows how to fit models to outbreak data, quantify the uncertainty in the
-results, and find which parameters matter most. It then extends the model to the most common applications:
+Along the way the book marks the places where simple models most often mislead. A model can be fitted to a quantity
+the data do not report. A parameter the data cannot determine can be reported as if it were known. An intervention
+can be judged by its effect on the threshold for an outbreak rather than by the disease it prevents. Each of these
+mistakes produces an answer that looks reasonable and is wrong. The book names each pitfall where it is most
+tempting, shows how to recognize it, and shows how to avoid it.
+
+With that foundation in place, the book shows how to fit models to outbreak data, check which parameters the data can
+determine, and quantify the uncertainty in the results. It then extends the model to the settings met most often in
+practice:
 
 - latent periods, waning immunity, quarantine, disease-induced deaths and asymptomatic infection;
-- populations with groups that mix unevenly;
+- populations whose groups mix unevenly;
 - sexually transmitted infections, such as gonorrhea and HIV;
-- vector-borne diseases, such as malaria;
+- vector-borne diseases, such as malaria and dengue;
 - transmission from mother to child;
-- age structure and infectiousness that changes over the course of an infection.
+- structure in age and in time since infection, which leads to the renewal equation.
 
 Three case studies, COVID-19, dengue and HIV, bring these tools together on real diseases, and a final chapter draws
 the lessons they share.
 
-The book is written for readers who work with AI assistants. Its exercises teach them to catch the fluent, confident
-errors these tools make on exactly the questions the pitfalls concern. All 276 exercises are answered in an
-instructor's guide, available to instructors on request; every chapter ends with a guide to further reading; and the
-code behind every computed figure is in this repository, so each one can be regenerated.
+The book is written for readers who work with AI assistants. Its tagged exercises teach them to catch the fluent, confident
+errors these tools make in exactly the places the pitfalls describe. Every exercise is answered in an instructor's
+guide, available to instructors on request; every chapter has a guide to further reading; and the code behind
+every computed figure is in this repository, so each one can be regenerated.
 
 ## Who it's for
 
 Upper-level undergraduates and beginning graduate students in applied mathematics, quantitative public health and
 related fields, and the instructors who teach them. The book assumes a first course in ordinary differential
 equations, linear algebra and calculus-based probability and statistics, but no prior exposure to epidemic modeling.
+It is also written for working modelers who want a practical reference on fitting epidemic models to real data.
 
 ## Navigating the materials
 

@@ -3,6 +3,23 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-10-24, later]
+
+### Added
+- `docs/hyman2026avoiding_v2_110_2.pdf` (559 pages), the current pre-publication draft. It replaces the v2_108_2
+  draft, which is removed. A co-author's check of sources adds one citation and removes five statements for which no
+  source was found, the Preface is rewritten as an overview of what the book teaches, what it covers and whom it
+  is for, and the List of Common Pitfalls is one list, giving for each pitfall where it is developed and where the
+  text flags it.
+- `docs/AUDIT_LEDGER_v2_110_2.md`, the claim audit ledger as of v2_110_2. It keeps every row of the v2_108_2 ledger,
+  which is removed, and adds ten.
+
+### Changed
+- `index.md`: "What the book is about" and "Who it's for" now follow the rewritten Preface, and no longer count the
+  pitfalls.
+- Version stamp: tracks book v2_110_2 (previously v2_108_2), in `README.md`, `index.md`, `book/README.md`,
+  `docs/README.md` and `REPRODUCIBILITY.md`. The figures and their generators are unchanged.
+
 ## [2026-10-24]
 
 ### Changed
