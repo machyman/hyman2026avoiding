@@ -16,7 +16,7 @@ the book's figures and numerical results, together with datasets and guided labs
 as they are finalized.
 
 > **The book is under review with Springer.** With Springer's permission, the
-> [current pre-publication draft (v2_110_2)](https://github.com/machyman/hyman2026avoiding/blob/main/docs/hyman2026avoiding_v2_110_2.pdf)
+> [current pre-publication draft (v2_134_0)](https://github.com/machyman/hyman2026avoiding/blob/main/docs/hyman2026avoiding_v2_134_0.pdf)
 > is posted for comment, with the
 > [claim audit ledger as of v2_110_2](https://github.com/machyman/hyman2026avoiding/blob/main/docs/AUDIT_LEDGER_v2_110_2.md).
 > The published book will be available from Springer.
@@ -64,11 +64,17 @@ It is also written for working modelers who want a practical reference on fittin
 ## Navigating the materials
 
 - **[Code](https://github.com/machyman/hyman2026avoiding/tree/main/notebooks)** —
-  per-chapter scripts (`ch03`, `ch04`, `ch06`–`ch12`, `ch16`, `ch17`) that reproduce the figures, built on a
+  per-chapter scripts (`ch03`, `ch04`, `ch06`–`ch12`, `ch16`, `ch17`, `ch18`) that reproduce the figures, built on a
   [shared model](https://github.com/machyman/hyman2026avoiding/tree/main/src).
+- **[figs_src](https://github.com/machyman/hyman2026avoiding/tree/main/figs_src)** —
+  the two scripts the book cites at `figs_src/` paths: the mpox benchmarks and forecasts of Chapter 8 and the
+  structural-identifiability rank test of Chapter 7.
+- **[Open toolboxes](https://github.com/machyman/hyman2026avoiding/blob/main/TOOLBOXES.md)** —
+  related open tools for fitting and forecasting in MATLAB, R and Julia.
 - **[Data](https://github.com/machyman/hyman2026avoiding/tree/main/data)** —
   provenance and pointers for the case-study datasets (e.g., the WSU 2009 H1N1
-  data via the MIDAS catalog).
+  data via the MIDAS catalog), and the U.S. mpox series of Chapter 8, which keeps its GPL-3.0 licence from
+  GrowthPredict.
 - **[Capstones](https://github.com/machyman/hyman2026avoiding/tree/main/capstone-projects)** —
   the book's chapter capstone projects, one directory per project.
 - **[Draft and audit ledger](https://github.com/machyman/hyman2026avoiding/tree/main/docs)** —

@@ -13,6 +13,9 @@ Revised 2026-10-17 (Session 223, F-221.1, RG-222.1 (ii)): Istar is the general f
 of the model the book integrates, not the equal-contact form, in which c_S and c_R had
 structural zeros. The design, seed and sample are unchanged.
 
+Revised 2026-11-17 (round 1, BA-56/57): the legend labels the indices calligraphic S_ell and
+S_{T_ell}, the book's notation. The design, seed, sample and values are unchanged.
+
 Design: 6 parameters, independent uniform on [p/2, 2p] around the centralized
 baseline (sir_i_model.BASE), matching the LHS-PRCC design of the same section.
 Estimators on the Saltelli A/B/A_B^i matrices (n_base_samples*(k+2) evaluations
@@ -104,9 +107,9 @@ w = 0.38
 for ax, label, title in zip(axes, ['R0', 'Istar'], titles):
     S_first, S_total = results[label]
     ax.bar(x - w / 2, np.maximum(S_first, 0.0), w, color='0.25',
-           label=r'$\mathcal{S}_i$')
+           label=r'$\mathcal{S}_\ell$')
     ax.bar(x + w / 2, np.maximum(S_total, 0.0), w, color='0.72',
-           edgecolor='0.25', linewidth=0.6, label=r'$\mathcal{S}_{T_i}$')
+           edgecolor='0.25', linewidth=0.6, label=r'$\mathcal{S}_{T_\ell}$')
     ax.set_xticks(x)
     ax.set_xticklabels(param_tex)
     ax.set_title(title, fontsize=10)

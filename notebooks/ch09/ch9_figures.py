@@ -15,11 +15,14 @@ Reproduces (written to figs/):
                                 series, their ACF, and weekly residuals after the two-phase fit with a real
                                 Ljung-Box p-value
   ch9_ascertainment.pdf      -- reported vs true incidence (rho=0.23); 3-day reporting-delay effect
-  ch9_horsetail.pdf          -- 100 stochastic SIR trajectories, 3 stages, deterministic overlay
+  ch9_horsetail.pdf          -- 100 stochastic SIR trajectories, deterministic overlay; stage boundaries from the
+                                text's cumulative-incidence rule (Stage 2 from 3 percent of N^c; Stage 3 from 70 to 75
+                                percent, not reached at R0 = 1.37)
 
 The chapter's illustrative series (v2.0) is generated here, in the WSU H1N1 regime (N^c = 20,000, R0 = 1.37,
 tau_R = 5 d, I0 = 5), with two mechanisms the chapter diagnoses: a weekend reporting cycle (80% of Saturday and
-Sunday cases reported on the day, the rest on Monday) and a 15% rise in alpha from day 70 (returning students).
+Sunday cases reported on the day, the rest on Monday) and a 15% rise in alpha from day 70 (an unspecified
+mid-semester behavioural change).
 Daily prevalence is a census with Poisson counting noise. These three settings were fixed before the first run and
 not tuned to any printed number. Every value annotated on the two computed figures is computed below and printed.
 
@@ -48,6 +51,26 @@ Revised: 2026-10-17   Version 2.6 (RG-219.3 (i), F-218.4: the profile figure is 
                       tau_R with the Table 8.1 penalty (tau_R - 5)^2/0.7^2 (right), at each fixed seed I0. tau_R is
                       bounded to [0.05, 200] days and the bound is reported. The v1.0 rng(9) draw this figure made
                       is still taken, unused, so the later figures keep their streams.)
+Revised: 2026-10-29   Version 2.7 (S277 review, R3-06: the horsetail stage boundaries follow the text's rule,
+                      cumulative incidence of the deterministic run at 3 percent of N^c (600 cases, Stage 1 -> 2)
+                      and at 75 percent (Stage 2 -> 3, drawn only if reached; at R0 = 1.37 the final size is
+                      about 49 percent, so it is not). v2.6 drew them at 5 percent of peak prevalence and at the
+                      peak. "Established" is now the same 3 percent threshold, applied to each run's cumulative
+                      incidence. The random draws and the plotted paths are unchanged; only the colouring, the
+                      boundaries and the extinction count move. The other five figures are unchanged. R3-07: the
+                      day-70 rise is described as an unspecified mid-semester change, not a return of students.)
+Revised: 2026-10-29   Version 2.8 (S277 review pass 2, S4-13: the three final sizes of Table 8.4 (tab:scope-illustration)
+                      are computed and printed: the baseline and CI rows from the final-size relation z = 1 - exp(-R0 z)
+                      at the plateau R0-hat and at the data-only (iid) bootstrap limits, the behavioral row from the
+                      seeded model (I0 = 5, alpha down 30 percent from day 70). S4-12: the horsetail line says the
+                      second count is of runs extinct by the deterministic Stage 1 end. Print lines only: no random
+                      stream is drawn or reordered, and every PDF is unchanged.)
+Revised: 2026-10-31   Version 2.9 (Session 278 figure pin.  U4a-01: the full-parameter-CI row of Table 8.4 is printed,
+                      the final-size relation at the tau_R-drawn bootstrap limits (0 below R0 = 1; 14,141 at the
+                      unrounded upper limit 1.7365).  RC_S278, S7-06: the Stage 2 -> 3 band is now 70 to 75 percent
+                      (Geneus et al. abstract); STAGE3_CUM is set to the low end, 0.70.  It is not reached at
+                      R0 = 1.37 (final size about 49 percent), so the figure is unchanged.  Print lines and a
+                      constant only: no random stream is drawn or reordered, and every PDF is byte-identical.)
 """
 import numpy as np, matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
@@ -243,6 +266,40 @@ print(f'delta, CV of mean only:               [{ci_delta_data[0]:.3f}, {ci_delta
 print(f'delta as printed (CV 0.18):           [{ci_printed[0]:.3f}, {ci_printed[1]:.3f}]')
 print(f'share of delta variance from tau_R: {(S_TAU*CV_TAU)**2/se_rel**2:.3f}')
 print(f'bootstrap share below R0 = 1: data {np.mean(boot_data < 1):.3f}, data + tau_R {np.mean(boot_full < 1):.3f}')
+
+
+# Table 8.4 (tab:scope-illustration), S277 pass 2 (S4-13): the three scenarios' final sizes. No random draws.
+def final_size_rel(R0v):
+    # seedless final-size relation z = 1 - exp(-R0 z), as a fraction of N^c
+    from scipy.optimize import brentq as _brentq
+    return _brentq(lambda z: 1 - z - np.exp(-R0v * z), 1e-9, 1.0)
+
+
+def final_size_or_zero(R0v):
+    # the final-size relation has only the trivial root z = 0 when R0 <= 1 (no major outbreak)
+    return final_size_rel(R0v) if R0v > 1 else 0.0
+
+
+def seeded_final_size(R0v, I0=5, drop=0.30, t_drop=70.0, T_end=3000.0):
+    # seeded SIR (tau_R = 5 d), alpha cut by `drop` from day t_drop; new infections, the seed excluded
+    def rhs(t, y, a):
+        S, I, C = y
+        return [-a * S * I, a * S * I - GAMMA * I, a * S * I]
+    y0 = [1 - I0 / NC, I0 / NC, 0.0]
+    s1 = solve_ivp(rhs, [0, t_drop], y0, args=(R0v * GAMMA,), rtol=1e-11, atol=1e-14, method='LSODA')
+    s2 = solve_ivp(rhs, [t_drop, T_end], s1.y[:, -1], args=(R0v * GAMMA * (1 - drop),), rtol=1e-11, atol=1e-14,
+                   method='LSODA')
+    return NC * s2.y[2, -1]
+
+
+print('--- Table 8.4 (scope illustration) ---')
+print(f'baseline: final-size relation at plateau R0-hat {R0_hat:.4f}: {NC * final_size_rel(R0_hat):.0f} students')
+print(f'95% CI: final-size relation at data-only bootstrap [{ci_data[0]:.4f}, {ci_data[1]:.4f}]: '
+      f'[{NC * final_size_rel(ci_data[0]):.0f}, {NC * final_size_rel(ci_data[1]):.0f}] students')
+print(f'95% full parameter CI: final-size relation at data + tau_R bootstrap [{ci_full[0]:.4f}, {ci_full[1]:.4f}]: '
+      f'[{NC * final_size_or_zero(ci_full[0]):.0f}, {NC * final_size_or_zero(ci_full[1]):.0f}] students '
+      f'(0 where R0 <= 1: no major outbreak)')
+print(f'behavioral: seeded model (I0 = 5), alpha down 30% from day 70: {seeded_final_size(R0_hat):.0f} students')
 
 
 # =========================================================================
@@ -529,44 +586,55 @@ def stoch_sir(N, beta, gamma, I0, T, dt=0.2):
     for j in range(steps):
         if I <= 0:
             Is[j + 1:] = 0
-            return Is
+            return Is, N - I0 - S                 # prevalence path, cumulative incidence
         ni = min(rng.poisson(beta * S * I / N * dt), S)
         nr = min(rng.poisson(gamma * I * dt), I)
         S -= ni; I += ni - nr
         Is[j + 1] = max(I, 0)
-    return Is
+    return Is, N - I0 - S
 
 
 T, dt, I0 = 140.0, 0.2, 5
 tg = np.arange(0, T + dt, dt)
 det_S, det_I, _ = sir_curve(tg, I0=I0)
 det_I = det_I * NC
-# stage boundaries: end of early stochastic phase (det I crosses ~1% of peak growth) and peak
-t1 = tg[np.argmax(det_I > det_I.max() * 0.05)]     # Stage 1 -> 2
-t2 = tg[np.argmax(det_I)]                            # Stage 2 -> 3 (peak; susceptibles thereafter scarce)
+# stage boundaries from the text's rule: cumulative incidence of the deterministic run, as a fraction of N^c
+STAGE2_CUM, STAGE3_CUM = 0.03, 0.70                 # Stage 1 -> 2 at 3 percent (600 cases); Stage 2 -> 3 at 70 percent (low end of 70-75)
+det_cum = (1 - I0 / NC) - det_S                     # cumulative incidence fraction
+t1 = tg[np.argmax(det_cum >= STAGE2_CUM)]           # Stage 1 -> 2
+t2 = tg[np.argmax(det_cum >= STAGE3_CUM)] if (det_cum >= STAGE3_CUM).any() else None   # Stage 2 -> 3, if reached
+from scipy.optimize import brentq
+final_size = brentq(lambda z: 1 - z - (1 - I0 / NC) * np.exp(-R0_WSU * z), 1e-6, 1.0)
+print(f'horsetail stages: Stage 2 from day {t1:.1f} (cumulative {det_cum[tg == t1][0]:.4f}); '
+      + (f'Stage 3 from day {t2:.1f}' if t2 is not None else 'Stage 3 not reached')
+      + f'; deterministic cumulative at day {T:.0f} {det_cum[-1]:.4f}, final size {final_size:.4f}; '
+      f'peak prevalence day {tg[np.argmax(det_I)]:.1f}')
 
 fig, ax = plt.subplots(figsize=(6.6, 3.7))
 n_ext, n_ext1 = 0, 0
-est = det_I.max() * 0.05                            # the Stage 1 -> 2 threshold above
+est = STAGE2_CUM * NC                               # established: 600 cumulative cases, the Stage 1 -> 2 threshold
+segs = [(0, t1, Rd), (t1, T + 1, B)] if t2 is None else [(0, t1, Rd), (t1, t2, B), (t2, T + 1, G)]
 for _ in range(100):
-    Is = stoch_sir(NC, BETA, GAMMA, I0, T, dt)
-    if (Is == 0).any() and Is.max() < est:   # went extinct before the epidemic was established (F-167.1)
+    Is, cum = stoch_sir(NC, BETA, GAMMA, I0, T, dt)
+    if (Is == 0).any() and cum < est:        # went extinct before the epidemic was established (F-167.1)
         n_ext += 1
         n_ext1 += int(Is[tg > t1][0] == 0)   # ... already extinct when Stage 1 ended
     # color each trajectory by stage segments
-    for (lo, hi, col) in [(0, t1, Rd), (t1, t2, B), (t2, T + 1, G)]:
+    for (lo, hi, col) in segs:
         m = (tg >= lo) & (tg <= hi)
         ax.plot(tg[m], Is[m], color=col, lw=0.5, alpha=0.35)
 ax.plot(tg, det_I, color='k', lw=1.8, zorder=5, label='deterministic')
-for tb in (t1, t2):
+for tb in ((t1,) if t2 is None else (t1, t2)):
     ax.axvline(tb, color='0.55', ls='--', lw=0.9)
 ax.text(t1 / 2, ax.get_ylim()[1] * 0.92, 'Stage 1', color=Rd, fontsize=8.5, ha='center')
-ax.text((t1 + t2) / 2, ax.get_ylim()[1] * 0.92, 'Stage 2', color=B, fontsize=8.5, ha='center')
-ax.text((t2 + T) / 2, ax.get_ylim()[1] * 0.92, 'Stage 3', color=G, fontsize=8.5, ha='center')
+t2_txt = T if t2 is None else t2
+ax.text((t1 + t2_txt) / 2, ax.get_ylim()[1] * 0.92, 'Stage 2', color=B, fontsize=8.5, ha='center')
+if t2 is not None:
+    ax.text((t2 + T) / 2, ax.get_ylim()[1] * 0.92, 'Stage 3', color=G, fontsize=8.5, ha='center')
 ax.set_xlabel('Day'); ax.set_ylabel(r'infectious $I(t)$')
 ax.set_title('Horsetail: 100 stochastic SIR runs', fontsize=10)
 ax.legend(frameon=False, fontsize=8, loc='center right'); despine(ax)
 fig.tight_layout()
 fig.savefig('figs/ch9_horsetail.pdf'); plt.close(fig)
-print(f'horsetail ok ({n_ext}/100 extinct before the epidemic was established, {n_ext1} of them in Stage 1)')
+print(f'horsetail ok ({n_ext}/100 extinct before the epidemic was established, {n_ext1} of them by the deterministic Stage 1 end)')
 print('ALL CH9 FIGURES DONE')

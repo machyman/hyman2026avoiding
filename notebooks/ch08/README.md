@@ -10,4 +10,10 @@ Scripts:
 - [`ch8_central_comparison.py`](ch8_central_comparison.py)
 - [`ch8_weighting.py`](ch8_weighting.py)
 
+Diagnostics: [`probes/`](probes/) holds five Route B probe scripts that print results and write no figure.
+
+The structural-identifiability rank test of Section 7.3 is
+[`../../figs_src/ch8_structural_identifiability.py`](../../figs_src/ch8_structural_identifiability.py), at the path the
+book prints.
+
 Run from the repository root (see [../README.md](../README.md)). Fuller narrated teaching notebooks are in preparation.

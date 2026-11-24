@@ -14,6 +14,9 @@ Reuses the shared integrator in sir_i_model.py; run from the repository root.
 
 Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-07-08   Version 1.2
+         2026-10-29   Version 1.3 (Session 277, staged pass 2): S3-03/T2-02, Scenario 2 panel marks the computed
+                      first halving (about 175 d) instead of "halves every 200 d" with guide lines at 200 and 400 d;
+                      T2-13(a), the lower axis of ch7_scenario1_long reads s(t). Other figures unchanged.
 """
 import numpy as np, matplotlib.pyplot as plt, sys; sys.path.insert(0, 'figs_src')
 from sir_i_model import simulate, endemic_general, BASE  # Phase 2 (S17): BASE imported for scenario labels
@@ -58,7 +61,7 @@ a1.set_ylabel('Infectious $i(t)$  (log)'); a1.set_ylim(1e-8,0.3)
 a1.set_title('Recurrent epidemics damping to a low endemic level',fontsize=11)
 a2.plot(yr,S,color=B,lw=1.1); a2.axhline(Ss,color='0.4',ls='--',lw=1)
 a2.text(2,Ss+0.03,'$s^*\\approx%.3f$'%Ss,fontsize=9,color='0.3')
-a2.set_ylabel('Susceptible $S(t)$'); a2.set_xlabel('Years'); a2.set_xlim(0,110); a2.set_ylim(0.15,1.0)
+a2.set_ylabel('Susceptible $s(t)$'); a2.set_xlabel('Years'); a2.set_xlim(0,110); a2.set_ylim(0.15,1.0)
 for a in(a1,a2):
     for s in('top','right'):a.spines[s].set_visible(False)
 time_arrow(a2)
@@ -75,8 +78,10 @@ a1.annotate('peak $\\approx%.2f$ (day %d)'%(I1[ipk],round(t[ipk])),xy=(t[ipk],I1
 a1.set_ylabel('Infectious $i(t)$')   # F-116.1: no ylim -- 0.17 clipped the peak (0.1740) and dropped the annotation
 a1.set_title(f'Scenario 1:  $c_I={BASE["c_I"]:g}$, $\\mathcal{{R}}_0\\approx{endemic_general()["R0"]:.2f}$  (supercritical outbreak)',fontsize=10.5)
 a2.plot(t,I2,color=Rd,lw=2)
-for th in (200,400):a2.axvline(th,color='0.85',ls=':',lw=0.9)
-a2.text(300,I2.max()*0.72,'halves $\\approx$ every 200 d',fontsize=9,color='0.3',ha='center')
+th=float(np.interp(0.5*I2[0],I2[::-1],t[::-1]))   # first halving of the simulated decay (I2 is monotone)
+print('Scenario 2: first halving at day %.1f (linearized halving %.1f d)'%(th,np.log(2)/((1/BASE['tau_R']+1/BASE['tau_m'])*(1-endemic_general(c_I=c2)['R0']))))
+a2.axvline(th,color='0.85',ls=':',lw=0.9)
+a2.text(th+15,I2.max()*0.72,'first halving $\\approx$ %d d'%(5*round(th/5)),fontsize=9,color='0.3',ha='left')
 a2.set_ylabel('Infectious $i(t)$'); a2.set_xlabel('Days'); a2.set_xlim(0,600); a2.set_ylim(0,0.00108)
 a2.set_title(f'Scenario 2:  $c_I={c2:g}$, $\\mathcal{{R}}_0\\approx{endemic_general(c_I=c2)["R0"]:.2f}$  (subcritical die-out)',fontsize=10.5)
 for a in(a1,a2):

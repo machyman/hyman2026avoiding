@@ -1,0 +1,9 @@
+model A0 (S(0) = N - I(0)): unknowns I, beta, gamma, N; Jacobian rank 4 of 4
+model B0 (S(0) = N - I(0)): unknowns I, beta, gamma, N, q; Jacobian rank 4 of 5
+  unidentifiable direction (at the test point): I:-5/81, beta:0, gamma:0, N:-1, q:5/54
+model A: unknowns S, I, beta, gamma, N; Jacobian rank 4 of 5
+  unidentifiable direction (at the test point): S:0, I:0, beta:11/15, gamma:0, N:1
+model B: unknowns S, I, beta, gamma, N, q; Jacobian rank 4 of 6
+  unidentifiable direction (at the test point): S:0, I:0, beta:11/15, gamma:0, N:1, q:0
+  unidentifiable direction (at the test point): S:-20/99, I:-4/11, beta:2/9, gamma:0, N:0, q:1
+model B symmetry check: y change 0; I' scales by lam: residual 0

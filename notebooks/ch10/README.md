@@ -5,7 +5,7 @@ The directory keeps the earlier chapter number because the book prints this path
 Sensitivity analysis — Latin-hypercube sampling with PRCC, and tornado plots.
 
 Scripts:
-- `ch10_figures.py`
+- [`ch10_figures.py`](ch10_figures.py)
 
 Run from the repository root (see [../README.md](../README.md)). Fuller narrated teaching notebooks are in preparation.
 

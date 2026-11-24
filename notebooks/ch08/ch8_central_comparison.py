@@ -7,8 +7,10 @@ Replaces the pre-v2_0_0 single-curve figure, which illustrated a claim
 
 The figure now illustrates Proposition 8.2: an incidence-only fit determines
 R0 only through k = N_a / (rho * N_true), and how steeply it does so depends on
-choices in the fitting procedure. The infected-viewpoint estimate is flat in
-every panel because k does not appear in it.
+choices in the fitting procedure. The dotted line is the true R0. The
+infected-viewpoint estimate alpha_hat/gamma_R does not depend on k, because k
+does not appear in it: it returns 1.99 over the early window (on the line) and
+that window's R_e, about 1.00, over the window through the peak.
 
 Panels (each varying ONE choice, all else held fixed):
   (a) fitting window      -- early/pre-peak vs through-peak
@@ -18,6 +20,14 @@ Panels (each varying ONE choice, all else held fixed):
 Outputs: figs/ch8_central_comparison.pdf
 Evidence base: ch8_route_b_probe.py, _robustness.py, _lossfn_diagnostic.py,
                _ascertainment.py, _identifiability.py
+Revised: 2026-10-29   Version 1.1 (Session 277, staged pass 2): review fixes T2-05.  The dotted line was
+               labelled alpha_hat/(gamma_R + nu_m), but no alpha_hat is computed and the model has no nu_m;
+               it is the true R0 and is now labelled so.  (No earlier version number was recorded.)
+Revised: 2026-10-31   Version 1.2 (Session 278 figure pin, U3a-02, U3a-03).  Panel (c) fixes the seed, so
+               Proposition 8.2 does not apply there and population and ascertainment are not interchangeable:
+               its x-axis is now N^c_a/N^c_true with rho = 1, not k.  The saturation comment is scoped to
+               k > 1 (for k < 1 least squares has no bound: about 4.4 at k = 1/10).  Fits and printed values
+               unchanged.
 """
 import numpy as np
 import matplotlib
@@ -105,15 +115,18 @@ fig, axes = plt.subplots(1, 3, figsize=(10.6, 3.5), sharey=True)
 for ax, key in zip(axes, ['a', 'b', 'c']):
     for y, lab, c, ls, mk in series[key]:
         ax.semilogx(ks, y, ls, color=c, lw=1.6, marker=mk, ms=4, label=lab)
-    # infected viewpoint: exactly flat, k does not enter
+    # true R0 (alpha_hat/gamma_R, which k does not enter, is 1.99 early and about 1.00 through the peak)
     ax.axhline(R0_TRUE, color='0.25', lw=1.8, ls=':',
-               label=r'infected viewpoint $\hat\alpha/(\gamma_R+\nu_m)$')
+               label=r'true $\mathcal{R}_0$')
     ax.axhline(1.0, color='0.75', lw=0.9)
     ax.text(ks[0]*1.05, 1.03, 'invasion threshold', fontsize=7, color='0.45')
     ax.set_xscale('log')
     ax.set_xticks([1/3, 1, 3, 10, 30])
     ax.set_xticklabels(['1/3', '1', '3', '10', '30'])
-    ax.set_xlabel(r'$k = N^c_a/(\rho N^c_{\mathrm{true}})$')
+    if key == 'c':   # seed known: Prop 8.2 does not apply; only N^c_a varies, with rho = 1 (U3a-03)
+        ax.set_xlabel(r'$N^c_a/N^c_{\mathrm{true}}$ \ ($\rho = 1$)')
+    else:
+        ax.set_xlabel(r'$k = N^c_a/(\rho N^c_{\mathrm{true}})$')
     ax.set_title(titles[key], fontsize=10)
     ax.set_ylim(0.8, 3.7)
     ax.legend(fontsize=7.2, frameon=False, loc='upper right')
@@ -125,7 +138,8 @@ print('ch8_central_comparison.pdf written')
 
 # ---------------- worked-example verification (Section sec:worked-example) ----------------
 # The worked example has J_obs = 200/day, I_obs = 800, tau_R = 7 -> R0_hat = 1.75.
-# Saturation bound: R0_hat cannot fall below 1, so the largest attainable gap is R0 itself.
+# Saturation bound, for k > 1 only (here k = 30): R0_hat cannot fall below 1, so the largest attainable
+# gap is R0 itself.  For k < 1 unweighted least squares has no such bound (R0_hat ~ 4.4 at k = 1/10).
 R0_WE = 1.75
 truth_we = incidence(R0_WE, I0_TRUE, N_TRUE, T_FULL, N_FULL)
 r_k1  = fit_R0(truth_we, N_TRUE,      T_FULL, N_FULL)

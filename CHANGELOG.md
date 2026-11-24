@@ -3,6 +3,40 @@
 Notable changes to this companion repository. This is a reader-facing log; it
 does not track the book manuscript.
 
+## [2026-11-23]
+
+### Added
+- `docs/hyman2026avoiding_v2_134_0.pdf` (586 pages), the current pre-publication draft. It replaces the v2_110_2
+  draft, which is removed. Chapter 5 now shows how to read the next-generation matrix, with two new figures. R0 is
+  kept as the spectral radius of the next-generation matrix, and for vector-borne disease the book adds the host
+  reproductive number. Chapter 8 gains a section on benchmarks, forecasts and rival models, fitted to the U.S. mpox
+  series of 2022, and a parametric-bootstrap lab; Chapter 7 gains a check of structural identifiability before
+  fitting.
+- `notebooks/ch18/`, the generator of the dengue chapter's Figure 18.2, `ch18_figures.py`, with a README.
+- `notebooks/ch06/ch6_ngm_map.py` and `notebooks/ch06/ch6_r0_paths.py`, the generators of Figures 5.1 and 5.2.
+- `figs_src/`, at the paths the book prints: `ch9_benchmarks.py` (Section 8.8 and the lab of Section 8.2.1) and
+  `ch8_structural_identifiability.py` (the box in Section 7.3), each with the values file it writes, and a README.
+- `data/us_mpox_2022_weekly_cdc.txt`, the U.S. mpox series, copied unchanged from GrowthPredict. It keeps its
+  GPL-3.0 licence; it is not covered by this repository's MIT License.
+- `TOOLBOXES.md`, open tools for fitting and forecasting in MATLAB, R and Julia, which the book's Chapter 8 points to.
+- `notebooks/ch08/probes/README.md`, an index for the five diagnostic probes.
+
+### Changed
+- Eight generators come to the book's v2_134_0 copies: `notebooks/ch06/ch6_invasion_burden.py`,
+  `notebooks/ch07/ch7_figures.py`, `notebooks/ch08/ch8_central_comparison.py`, `notebooks/ch08/ch8_influenza_fit.py`,
+  `notebooks/ch09/ch9_figures.py`, `notebooks/ch10/ch10_figures.py`, `code/python/ch10_sensitivity/ch10_sobol_panel.py`
+  and `notebooks/ch17/ch17_figures.py`. Each script's header records what changed. The other 12 generators already
+  here and `src/sir_i_model.py` are unchanged.
+- `requirements.txt` adds SymPy, which `figs_src/ch8_structural_identifiability.py` needs.
+- `REPRODUCIBILITY.md`: 25 generators and 38 figures, the two scripts in `figs_src/`, and a note on the zlib.
+- `README.md` and `index.md`: `figs_src/`, `ch18/`, the toolboxes and the data licence. `README.md` links
+  `index.md` and `requirements.txt`. `data/README.md` describes the mpox series and its licence.
+- `notebooks/README.md`, the READMEs of `notebooks/ch03/`, `ch06/`, `ch07/`, `ch08/`, `ch09/`, `ch10/`, `ch17/`
+  and `src/README.md`: every script is a link; `ch08/` and `ch09/` point to `figs_src/`.
+- `CITATION.cff` gains `version` and `date-released`.
+- Version stamp: tracks book v2_134_0 (previously v2_110_2), in `README.md`, `index.md`, `book/README.md`,
+  `docs/README.md`, `REPRODUCIBILITY.md` and `CITATION.cff`. The claim audit ledger stays at v2_110_2.
+
 ## [2026-10-24, later]
 
 ### Added

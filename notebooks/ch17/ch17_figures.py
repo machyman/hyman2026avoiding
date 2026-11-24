@@ -5,12 +5,12 @@ COVID-19). Reproduces (written to figs/):
   ch17_alpha_hat.pdf -- COMPUTED: the chapter's SEIAR_I model (eq. covid-model-v2) at its Section 17.4 baseline,
                         run from a small seed. (a) symptomatic onsets J_obs = p gamma_E E, symptomatic prevalence I
                         and total prevalence I + A. (b) what three conversions of the case-count ratio report,
-                        against the true R0 of eq. covid-R0: the SIR_I reading R0 = alpha_hat/(gamma_R + nu_m), the
+                        against the true R0 of eq. covid-R0: the SIR_I reading R0 = zeta/(gamma_R + nu_m), the
                         relation that carries the latent period, (1 + r tau_E)(1 + r tau_R), and symptomatic onsets
                         divided by total prevalence, times tau_R.
 
 Every number Chapter 17 quotes from this analysis is computed below and printed: the growth rate and the ratio
-alpha_hat = J_obs/I = r + gamma_R + mu_d + nu_m; the three conversions and the p = 1 control; the track terms; the
+zeta = J_obs/I = r + gamma_R + mu_d + nu_m; the three conversions and the p = 1 control; the track terms; the
 exact sensitivity of R0 to tau_R and the delta-method bracket at the chapter's printed indices; the Monte Carlo
 interval on the delta method's ranges; the final sizes of the scenarios; and the asymptomatic infectious period at
 which the asymptomatic share of R0 falls to one half.
@@ -25,6 +25,8 @@ Author:  James M. Hyman, mhyman@tulane.edu, Tulane University
 Date:    2026-10-11   Version 1.0 (RG-178.1 rows a, c, d, e and f; Session 179)
 Revised: 2026-10-11   Version 1.1 (independent check: the right panel's labels print three decimals; the
                       Monte Carlo comment states the standard deviations the code uses; figs/ is created)
+Revised: 2026-10-29   Version 1.2 (Session 277 staged pass 2, S8-11: the right-panel legend writes the growth rate
+                      as sigma, the book's growth-rate symbol, not r, which the book uses for the recovered fraction)
 """
 import os
 import numpy as np, matplotlib.pyplot as plt
@@ -172,8 +174,8 @@ despine(ax[0])
 x = tt[ok]
 ax[1].axhline(r0, color='0.45', ls='--', lw=1.1, zorder=3)
 ax[1].text(40.0, r0 + 0.13, r'true $\mathcal{R}_0 = %.3f$ (dashed)' % r0, fontsize=7.5, color='0.35', ha='center')
-ax[1].plot(x, conv_lat, color=B, lw=1.9, label=r'$(1 + r\tau_E)(1 + r\tau_R)$')
-ax[1].plot(x, conv_sir, color=O, lw=1.9, ls='--', label=r'SIR reading: $\hat\alpha/(\gamma_R + \nu_m)$')
+ax[1].plot(x, conv_lat, color=B, lw=1.9, label=r'$(1 + \sigma\tau_E)(1 + \sigma\tau_R)$')
+ax[1].plot(x, conv_sir, color=O, lw=1.9, ls='--', label=r'SIR reading: $\zeta/(\gamma_R + \nu_m)$')
 ax[1].plot(x, conv_mis, color=Rd, lw=1.9, ls=':', label=r'onsets $\div$ total prevalence, $\times\,\tau_R$')
 for y, c in ((lat, B), (sir, O), (mism, Rd)):
     ax[1].text(T + 1.0, y, '%.3f' % y, fontsize=7.5, color=c, va='center')

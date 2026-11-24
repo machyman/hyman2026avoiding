@@ -1,0 +1,49 @@
+data: 32 weeks; peak 3132 cases in week 11; total 29751
+lab pois: point r=0.978 p=0.934 K=24571
+lab pois: on a bound: none
+lab pois: p 95% [0.925, 0.941]; K 95% [24100, 25178]; corr(r,p)=-0.99
+lab pois: 95% PI weeks 15-18 covers 0 of 4; total size 95% [24035, 25275] (observed 29751)
+lab nb: point r=0.841 p=0.958 K=23927 k=124.5
+lab nb: on a bound: none
+lab nb: p 95% [0.936, 0.980]; K 95% [22466, 25518]; corr(r,p)=-0.99
+lab nb: 95% PI weeks 15-18 covers 0 of 4; total size 95% [21869, 25620] (observed 29751)
+  origin 6: GGM ends on a bound: log k
+  origin 6: GLM ends on a bound: log k
+  origin 6: Richards ends on a bound: log k
+  origin 6: SIR ends on a bound: log gamma, log(N - y0), log k
+  origin 8: Richards ends on a bound: log a, log k
+  origin 8: SIR ends on a bound: log gamma, log(N - y0)
+  origin 10: GLM ends on a bound: logit p
+  origin 10: SIR ends on a bound: log gamma
+scores over origins 6,8,10,12,14,16,18,20, horizons 1-4:
+  GGM: MAE 6958  MSE 7.04e+07  WIS 5276  cov50 0.03  cov95 0.12  n 32
+  GLM: MAE 763  MSE 1.11e+06  WIS 569  cov50 0.06  cov95 0.16  n 32
+  Richards: MAE 787  MSE 1.42e+06  WIS 697  cov50 0.06  cov95 0.22  n 32
+  SIR: MAE 1057  MSE 6.17e+06  WIS 675  cov50 0.09  cov95 0.28  n 32
+  Ensemble: MAE 1281  MSE 9.51e+06  WIS 930  cov50 0.03  cov95 0.34  n 32
+  origin 6: AICc weights GGM 1.00  GLM 0.00  Richards 0.00  SIR 0.00;  week-10 medians: GLM/Richards/SIR 2319 to 4781, GGM 4392 (observed 2679)
+  origin 8: AICc weights GGM 0.87  GLM 0.03  Richards 0.09  SIR 0.00;  week-12 medians: GLM/Richards/SIR 0 to 15282, GGM 18043 (observed 3027)
+  origin 10: AICc weights GGM 0.00  GLM 0.34  Richards 0.65  SIR 0.00;  week-14 medians: GLM/Richards/SIR 444 to 1644, GGM 20552 (observed 2446)
+  origin 12: AICc weights GGM 0.00  GLM 0.25  Richards 0.74  SIR 0.01;  week-16 medians: GLM/Richards/SIR 505 to 754, GGM 19660 (observed 1727)
+  origin 14: AICc weights GGM 0.00  GLM 0.03  Richards 0.96  SIR 0.01;  week-18 medians: GLM/Richards/SIR 355 to 572, GGM 14591 (observed 1082)
+  origin 16: AICc weights GGM 0.00  GLM 0.00  Richards 1.00  SIR 0.00;  week-20 medians: GLM/Richards/SIR 234 to 384, GGM 9689 (observed 669)
+  origin 18: AICc weights GGM 0.00  GLM 0.00  Richards 1.00  SIR 0.00;  week-22 medians: GLM/Richards/SIR 149 to 242, GGM 8608 (observed 404)
+  origin 20: AICc weights GGM 0.00  GLM 0.00  Richards 1.00  SIR 0.00;  week-24 medians: GLM/Richards/SIR 95 to 145, GGM 5881 (observed 277)
+per-origin mean WIS (95% hits/forecasts), horizons 1-4; last: Ensemble minus GLM, WIS summed over the origin:
+  origin 6: GGM 374 (3/4)  GLM 259 (3/4)  Richards 327 (3/4)  SIR 483 (3/4)  Ensemble 330 (2/4);  Ens-GLM +283
+  origin 8: GGM 5855 (0/4)  GLM 1286 (1/4)  Richards 2761 (0/4)  SIR 2951 (0/4)  Ensemble 4637 (4/4);  Ens-GLM +13405
+  origin 10: GGM 8071 (0/4)  GLM 868 (0/4)  Richards 1200 (0/4)  SIR 244 (4/4)  Ensemble 1103 (0/4);  Ens-GLM +937
+  origin 12: GGM 8729 (0/4)  GLM 843 (0/4)  Richards 547 (1/4)  SIR 528 (1/4)  Ensemble 580 (1/4);  Ens-GLM -1049
+  origin 14: GGM 6719 (0/4)  GLM 566 (0/4)  Richards 330 (1/4)  SIR 456 (1/4)  Ensemble 393 (1/4);  Ens-GLM -693
+  origin 16: GGM 5341 (0/4)  GLM 363 (0/4)  Richards 191 (1/4)  SIR 367 (0/4)  Ensemble 166 (2/4);  Ens-GLM -788
+  origin 18: GGM 4112 (0/4)  GLM 219 (1/4)  Richards 126 (1/4)  SIR 226 (0/4)  Ensemble 126 (1/4);  Ens-GLM -370
+  origin 20: GGM 3007 (1/4)  GLM 148 (0/4)  Richards 96 (0/4)  SIR 147 (0/4)  Ensemble 106 (0/4);  Ens-GLM -170
+GGM at origin 10: r=0.952, p=0.928
+GGM at origin 6: r=0.815, p=0.958
+GGM at origin 8: r=0.763, p=0.973
+GGM at origin 10: r=0.952, p=0.928
+GGM at origin 12: r=1.187, p=0.885
+GGM at origin 14: r=1.543, p=0.836
+GGM at origin 16: r=2.051, p=0.786
+GGM at origin 18: r=2.778, p=0.736
+GGM at origin 20: r=3.852, p=0.683

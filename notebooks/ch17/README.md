@@ -4,6 +4,6 @@ Integrated case studies: COVID-19. What the infected-viewpoint ratio recovers wh
 generates the data, with every number the chapter quotes from that analysis computed and printed.
 
 Scripts:
-- `ch17_figures.py` (writes `figs/ch17_alpha_hat.pdf`)
+- [`ch17_figures.py`](ch17_figures.py) (writes `figs/ch17_alpha_hat.pdf`, Figure 17.2)
 
 Run from the repository root (see [../README.md](../README.md)). It needs no shared module.

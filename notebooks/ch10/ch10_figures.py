@@ -20,6 +20,13 @@ Revised: 2026-10-17   Version 1.3 (F-221.1, RG-222.1 (ii): I* is the general-con
                       sample is unchanged (same seed and draws) and I* is evaluated with the general form.)
 Revised: 2026-10-17   Version 1.4 (F-223.2, RG-225.4: the schematic's labels only. c_I and beta share one point and
                       one label; the class words sit clear of the markers. No data, index or random stream changes.)
+Revised: 2026-10-31   Version 1.5 (Session 278 figure pin, U5a-02/U5b-04: the tornado and PRCC bars follow the text's
+                      convention (Section 9.5.1), red for a positive index and blue for a negative one; v1.4 had them
+                      the other way round. Colours only: no index, sample or random stream changes; the schematic is
+                      unchanged.)
+Revised: 2026-11-13   Version 1.6 (round-1 audit, G1B-R074: PRCC ranks by scipy.stats.rankdata with average
+                      ranks for ties, as Appendix B states; the I* column has a point mass at zero. Same sample and
+                      random stream. The PRCC figure is regenerated.)
 """
 import numpy as np, matplotlib.pyplot as plt
 plt.rcParams.update({'text.usetex':True,'font.family':'serif','font.size':10,'mathtext.fontset':'cm','axes.linewidth':0.8})
@@ -41,7 +48,7 @@ fig,ax=plt.subplots(1,2,figsize=(9.4,3.6))
 for a,(D,ttl) in zip(ax,[(SR0,'Sensitivity of $\\mathcal{R}_0$'),(SIs,'Sensitivity of $i^*$')]):
     items=sorted(D.items(),key=lambda kv:abs(kv[1]))
     names=[k for k,_ in items]; vals=[v for _,v in items]
-    cols=[Rd if v<0 else B for v in vals]
+    cols=[B if v<0 else Rd for v in vals]   # v1.5: red positive, blue negative (Ch 9 text, U5a-02)
     a.barh(range(len(vals)),vals,color=cols,height=0.6,edgecolor='k',linewidth=0.5)
     a.set_yticks(range(len(names))); a.set_yticklabels(names)
     a.axvline(0,color='k',lw=0.8); a.set_title(ttl,fontsize=10); a.set_xlabel('normalized sensitivity $\\Upsilon$')
@@ -84,9 +91,9 @@ Is=X[:,4]*(1/X[:,3])*(R0s-1)/(X[:,4]*gg*(R0s-1)+X[:,0]/X[:,3]+X[:,5]/X[:,2])   #
 Is=np.where(R0s>1,Is,0.0)   # no endemic equilibrium where R0 <= 1 (v1.2; the Sobol panel's convention)
 print(f'PRCC sample: share with R0 <= 1 = {np.mean(R0s<=1):.3f}')
 def prcc(X,y):
-    from numpy import argsort
-    R=np.apply_along_axis(lambda c:argsort(argsort(c)),0,X).astype(float)
-    ry=argsort(argsort(y)).astype(float); out=[]
+    from scipy.stats import rankdata   # tied values share their average rank, as Appendix B states (v1.6)
+    R=np.apply_along_axis(lambda c:rankdata(c,method='average'),0,X)
+    ry=rankdata(y,method='average'); out=[]
     for i in range(X.shape[1]):
         idx=[k for k in range(X.shape[1]) if k!=i]; Z=np.column_stack([np.ones(len(ry)),R[:,idx]])
         bi=np.linalg.lstsq(Z,R[:,i],rcond=None)[0]; ei=R[:,i]-Z@bi
@@ -98,7 +105,7 @@ labels=['$c_I$','$\\beta$','$\\tau_R$','$\\tau_m$','$c_S$','$c_R$']
 fig,ax=plt.subplots(1,2,figsize=(9.4,3.6))
 for a,(pr,ttl) in zip(ax,[(pr_R0,'PRCC for $\\mathcal{R}_0$'),(pr_I,'PRCC for $i^*$')]):
     o=np.argsort(np.abs(pr)); v=pr[o]; nm=[labels[i] for i in o]
-    a.barh(range(len(v)),v,color=[Rd if x<0 else B for x in v],height=0.6,edgecolor='k',linewidth=0.5)
+    a.barh(range(len(v)),v,color=[B if x<0 else Rd for x in v],height=0.6,edgecolor='k',linewidth=0.5)
     a.set_yticks(range(len(nm))); a.set_yticklabels(nm); a.axvline(0,color='k',lw=0.8)
     a.set_title(ttl,fontsize=10); a.set_xlabel('PRCC'); a.set_xlim(-1.1,1.1)
     for s in('top','right'):a.spines[s].set_visible(False)
