@@ -3,3 +3,5 @@ _config.yml export-ignore
 _data/ export-ignore
 _includes/ export-ignore
 .github/ export-ignore
+# Drafts posted for comment stay out of release archives and Zenodo deposits
+docs/ export-ignore
